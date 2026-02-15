@@ -3,10 +3,16 @@ import { expect, test, vi } from 'vitest';
 import App from '../src/App';
 import React from 'react';
 
-test('renders welcome header', () => {
+test('renders main header', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Welcome to Tommy's Projects/i);
-  expect(headerElement).toBeInTheDocument();
+  const headerElements = screen.getAllByText(/tommyroar.github.io/i);
+  expect(headerElements.length).toBeGreaterThan(0);
+});
+
+test('renders dark mode toggle', () => {
+  render(<App />);
+  const toggleElement = screen.getByText(/Dark mode/i);
+  expect(toggleElement).toBeInTheDocument();
 });
 
 test('renders Vitamind SPA card', async () => {

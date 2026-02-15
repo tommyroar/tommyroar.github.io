@@ -9,26 +9,57 @@ import {
   Box,
   SpaceBetween,
   TopNavigation,
-  Badge
+  Badge,
+  Toggle
 } from '@cloudscape-design/components';
-
+import { applyMode, Mode } from '@cloudscape-design/global-styles';
+import ReactMarkdown from 'react-markdown';
 import projectsData from './data/projects.json';
 
 const App = () => {
   const [projects, setProjects] = useState(projectsData);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
-    // Projects are now bundled at build time via bundle_apps.js
-  }, []);
+    if (isDarkMode) {
+      applyMode(Mode.Dark);
+    } else {
+      applyMode(Mode.Light);
+    }
+  }, [isDarkMode]);
 
   return (
     <div id="h" style={{ position: 'relative' }}>
       <TopNavigation
         identity={{
           href: "#",
-          title: "Tommy's Portfolio",
+          title: "tommyroar.github.io",
         }}
-        utilities={[]}
+        utilities={[
+          {
+            type: "menu-dropdown",
+            text: "Settings",
+            iconName: "settings",
+            items: [
+              {
+                id: "theme",
+                text: "Dark mode",
+                itemType: "section",
+                items: [
+                  {
+                    id: "dark-mode-toggle",
+                    text: isDarkMode ? "Enabled" : "Disabled",
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            type: "button",
+            text: isDarkMode ? "Light Mode" : "Dark Mode",
+            onClick: () => setIsDarkMode(!isDarkMode)
+          }
+        ]}
       />
       <AppLayout
         navigationHide={true}
@@ -39,8 +70,16 @@ const App = () => {
               <Header
                 variant="h1"
                 description="A central hub for specialized tools and geographic visualizations."
+                actions={
+                  <Toggle
+                    onChange={({ detail }) => setIsDarkMode(detail.checked)}
+                    checked={isDarkMode}
+                  >
+                    Dark mode
+                  </Toggle>
+                }
               >
-                Welcome to Tommy's Projects
+                tommyroar.github.io
               </Header>
             }
           >
@@ -55,8 +94,13 @@ const App = () => {
                   {
                     id: "description",
                     header: "Description",
-                    content: item => <Box variant="p">{item.description}</Box>
+                    content: item => (
+                      <div className="markdown-body">
+                        <ReactMarkdown>{item.description}</ReactMarkdown>
+                      </div>
+                    )
                   },
+
                   {
                     id: "links",
                     header: "Links",
