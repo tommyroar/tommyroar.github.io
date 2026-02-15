@@ -133,19 +133,6 @@ const App = () => {
                 </Box>
               }
             />
-            
-            <Box margin={{ top: "l" }}>
-               <Container
-                header={
-                  <Header variant="h2">Maps Overview</Header>
-                }
-              >
-                <SpaceBetween size="s">
-                  <Box variant="p">A collection of geographic and spatial visualization tools.</Box>
-                  <Link href="/maps/">View Maps Section</Link>
-                </SpaceBetween>
-              </Container>
-            </Box>
           </ContentLayout>
         }
       />
