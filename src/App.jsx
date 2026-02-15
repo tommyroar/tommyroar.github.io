@@ -115,7 +115,12 @@ const App = () => {
                     id: "status",
                     header: "Status",
                     content: item => (
-                      <Badge color={item.status === 'Active' ? 'green' : 'blue'}>{item.status}</Badge>
+                      <SpaceBetween direction="horizontal" size="s">
+                        <Badge color={item.status === 'Active' ? 'green' : 'blue'}>{item.status}</Badge>
+                        {item.tags && item.tags.map(tag => (
+                          <Badge key={tag}>{tag}</Badge>
+                        ))}
+                      </SpaceBetween>
                     )
                   }
                 ]

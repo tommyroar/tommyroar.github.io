@@ -20,6 +20,9 @@ test('renders Vitamind SPA card', async () => {
   const appLink = await screen.findByText(/Vitamind SPA/i);
   expect(appLink).toBeInTheDocument();
   expect(appLink.closest('a')).toHaveAttribute('href', '/maps/vitamind/');
+  
+  const activeBadge = screen.getByText(/Active/i);
+  expect(activeBadge).toBeInTheDocument();
 });
 
 test('renders Live SPA and Documentation links', async () => {

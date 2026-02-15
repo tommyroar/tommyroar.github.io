@@ -2,5 +2,7 @@
   "name": "Vitamind SPA",
   "root_path": "/maps/vitamind/",
   "docs_path": "/maps/docs/vitamind/",
-  "description": "**Vitamind** is a specialized tool designed to help users estimate their Vitamin D production from sunlight. By combining geographic data (via Mapbox) with solar position calculations (via SunCalc), it provides insights into the best times and locations for natural Vitamin D synthesis.\\n\\n- **Status:** Active\\n- **Tech Stack:** React, Vite, Mapbox GL JS, SunCalc"
+  "description": "**Vitamind** is a specialized tool designed to help users estimate their Vitamin D production from sunlight. By combining geographic data (via Mapbox) with solar position calculations (via SunCalc), it provides insights into the best times and locations for natural Vitamin D synthesis.",
+  "status": "Active",
+  "tags": ["React", "Vite", "Mapbox", "SunCalc"]
 }
