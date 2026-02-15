@@ -1,9 +1,7 @@
-name: Deploy MkDocs to GitHub Pages
+name: Update Index
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
