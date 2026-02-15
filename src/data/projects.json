@@ -10,6 +10,7 @@
       "Vite",
       "Mapbox",
       "SunCalc"
-    ]
+    ],
+    "thumbnail": "/thumbnails/vitamind.png"
   }
 ]
