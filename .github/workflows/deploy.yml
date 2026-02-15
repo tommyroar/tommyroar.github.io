@@ -23,6 +23,9 @@ jobs:
         with:
           python-version: 3.x
           
+      - name: Run Unit Tests
+        run: python tests/test_generate_index.py
+          
       - name: Generate Index from App Stubs
         run: python scripts/generate_index.py
           
