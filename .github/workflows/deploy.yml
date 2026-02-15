@@ -7,28 +7,37 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          
-      - uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: 3.x
+          node-version: 20
           
-      - name: Run Unit Tests
-        run: python tests/test_generate_index.py
-          
-      - name: Generate Index from App Stubs
-        run: python scripts/generate_index.py
-          
-      - run: pip install mkdocs-material
-      
-      - run: mkdocs gh-deploy --force
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+        
+      - name: Bundle Apps Data
+        run: node scripts/bundle_apps.js
+        
+      - name: Run Tests
+        run: npm test -- --run
+        
+      - name: Build SPA
+        run: npm run build
+        
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
