@@ -11,7 +11,7 @@ This is the central hub for my various projects hosted on GitHub Pages.
 - **Tech Stack:** React, Vite, Mapbox GL JS, SunCalc
 - **Links:**
     - [**Live SPA**](/maps/vitamind/)
-    - [**Documentation**](/maps/vitamind/docs/)
+    - [**Documentation**](/maps/docs/vitamind/)
 
 ---
 
