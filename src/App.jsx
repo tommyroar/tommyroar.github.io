@@ -92,6 +92,18 @@ const App = () => {
                 ),
                 sections: [
                   {
+                    id: "thumbnail",
+                    content: item => item.thumbnail && (
+                      <Box margin={{ bottom: "m" }}>
+                        <img 
+                          src={item.thumbnail} 
+                          alt={item.name} 
+                          style={{ width: '100%', height: 'auto', borderRadius: '4px', border: '1px solid #eaeded' }} 
+                        />
+                      </Box>
+                    )
+                  },
+                  {
                     id: "description",
                     header: "Description",
                     content: item => (
