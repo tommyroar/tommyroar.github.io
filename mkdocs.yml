@@ -1,0 +1,12 @@
+site_name: Tommy's Projects
+site_url: https://tommyroar.github.io/
+site_description: A central hub for Tommy's specialized tools and maps.
+site_author: Tommy
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Maps: 
+    - Overview: /maps/
+    - Vitamind: /maps/vitamind/
