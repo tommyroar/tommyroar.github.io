@@ -15,11 +15,11 @@ test('renders dark mode toggle', () => {
   expect(toggleElement).toBeInTheDocument();
 });
 
-test('renders Vitamind SPA card', async () => {
+test('renders Vitamind card', async () => {
   render(<App />);
-  const appLink = await screen.findByText(/Vitamind SPA/i);
+  const appLink = await screen.findByRole('link', { name: /^Vitamind$/i });
   expect(appLink).toBeInTheDocument();
-  expect(appLink.closest('a')).toHaveAttribute('href', '/maps/vitamind/');
+  expect(appLink).toHaveAttribute('href', '/vitamind/');
   
   const activeBadge = screen.getByText(/Active/i);
   expect(activeBadge).toBeInTheDocument();
