@@ -28,8 +28,24 @@ It supports:
 - **Dark Mode**: A dark mode toggle is available, with dark mode enabled by default.
 - **Project Thumbnails**: If a `[app-name].png` file is present alongside your JSON stub, it will be displayed as a thumbnail on the project card.
 
-## 3. Automate Updates via GitHub Actions
+## 3. Updating the Index
 
+While the index can be automated, a **manual update process** is currently preferred for the `tommyroar.github.io` root site. This ensures all changes are reviewed before being bundled into the final project data.
+
+### Manual Update (Preferred)
+To manually update the index after adding or modifying a project stub in `apps/`:
+1.  **Bundle Project Data**:
+    ```bash
+    node scripts/bundle_apps.js
+    ```
+2.  **Commit and Push**:
+    ```bash
+    git add .
+    git commit -m "Update project index"
+    git push
+    ```
+
+### Automated Updates (Optional)
 To trigger an automatic index rebuild from a sub-repository after deployment, add the following step to your workflow. Note: You must provide a Personal Access Token (PAT) with `repo` scope as a secret.
 
 ```yaml
