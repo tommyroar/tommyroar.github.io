@@ -65,7 +65,7 @@ def prompt_project_info(defaults=None):
         "Description (Markdown supported):",
         default=defaults.get("description", ""),
         multiline=True
-    ).ask()
+    ).ask() or ""
     
     status = questionary.select(
         "Status:",

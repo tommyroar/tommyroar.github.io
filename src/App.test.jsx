@@ -15,32 +15,34 @@ test('renders dark mode toggle', () => {
   expect(toggleElement).toBeInTheDocument();
 });
 
-test('renders Vitamind card', async () => {
+test('renders project cards', async () => {
   render(<App />);
-  const appLink = await screen.findByRole('link', { name: /^Vitamind$/i });
-  expect(appLink).toBeInTheDocument();
-  expect(appLink).toHaveAttribute('href', '/vitamind/');
   
-  const activeBadge = screen.getByText(/Active/i);
-  expect(activeBadge).toBeInTheDocument();
+  // Check Vitamind
+  const vitamindLink = await screen.findByRole('link', { name: /^Vitamind$/i });
+  expect(vitamindLink).toBeInTheDocument();
+  expect(vitamindLink).toHaveAttribute('href', '/vitamind/');
+
+  // Check intentcity
+  const intentcityLink = await screen.findByRole('link', { name: /^intentcity$/i });
+  expect(intentcityLink).toBeInTheDocument();
+  expect(intentcityLink).toHaveAttribute('href', '/intentcity/');
+  
+  // Verify that we have multiple Active badges and Live SPA links
+  const activeBadges = screen.getAllByText(/Active/i);
+  expect(activeBadges.length).toBeGreaterThanOrEqual(2);
+
+  const liveLinks = screen.getAllByText(/Live SPA/i);
+  expect(liveLinks.length).toBeGreaterThanOrEqual(2);
 });
 
 test('renders thumbnail when present', () => {
-  const mockProject = {
-    name: "Thumb App",
-    root_path: "/thumb/",
-    thumbnail: "/thumbnails/thumb.png",
-    status: "Active"
-  };
-  // We can't easily mock the import but we can check if App handles items with thumbnails
-  // For now just ensuring the component doesn't crash and logic is present
   render(<App />);
+  // Ensure the page renders without crashing even with mixed data
 });
 
-test('renders Live SPA and Documentation links', async () => {
+test('renders Documentation link when present', async () => {
   render(<App />);
-  const liveLink = await screen.findByText(/Live SPA/i);
-  const docsLink = await screen.findByText(/Documentation/i);
-  expect(liveLink).toBeInTheDocument();
-  expect(docsLink).toBeInTheDocument();
+  const docsLinks = await screen.findAllByText(/Documentation/i);
+  expect(docsLinks.length).toBeGreaterThan(0);
 });
