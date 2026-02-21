@@ -1,5 +1,17 @@
 [
   {
+    "name": "intentcity",
+    "root_path": "/intentcity/",
+    "docs_path": "",
+    "description": null,
+    "status": "Active",
+    "tags": [
+      "Mapbox",
+      "React",
+      "Github Pages"
+    ]
+  },
+  {
     "name": "Vitamind",
     "root_path": "/vitamind/",
     "docs_path": "/vitamind/docs/",
