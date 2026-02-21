@@ -46,3 +46,9 @@ test('renders Documentation link when present', async () => {
   const docsLinks = await screen.findAllByText(/Documentation/i);
   expect(docsLinks.length).toBeGreaterThan(0);
 });
+
+test('renders QR codes for projects', async () => {
+  render(<App />);
+  const qrCodes = await screen.findAllByAltText(/QR Code for/i);
+  expect(qrCodes.length).toBeGreaterThan(0);
+});

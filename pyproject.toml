@@ -8,6 +8,7 @@ dependencies = [
     "rich>=13.9.0",
     "slugify>=0.0.1",
     "python-slugify>=8.0.0",
+    "segno>=1.6.1",
 ]
 
 [project.scripts]

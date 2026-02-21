@@ -3,13 +3,14 @@
     "name": "intentcity",
     "root_path": "/intentcity/",
     "docs_path": "",
-    "description": null,
+    "description": "",
     "status": "Active",
     "tags": [
       "Mapbox",
       "React",
       "Github Pages"
-    ]
+    ],
+    "qr_code": "/thumbnails/intentcity_qr.png"
   },
   {
     "name": "Vitamind",
@@ -23,6 +24,7 @@
       "Health",
       "Visualization"
     ],
+    "qr_code": "/thumbnails/vitamind_qr.png",
     "thumbnail": "/thumbnails/vitamind.png"
   }
 ]
