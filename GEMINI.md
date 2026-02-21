@@ -13,6 +13,10 @@ When updating the project index or adding a new app stub:
 2.  **Local Test**: Run `npm test` to ensure the bundling didn't break existing tests.
 3.  **Deploy via PR**: Follow the deployment policy below: create a branch, push, and raise a PR against `main`.
 
+## Technical Guardrails
+
+**Ignore .DS_Store**: Always ensure `.DS_Store` files are ignored in all commits and never tracked in the repository. If you find them, remove them immediately from the Git index using `git rm --cached`.
+
 ## Deployment & Verification Policy
 
 **Always Raise a Pull Request**: When making changes to the project index or codebase:
