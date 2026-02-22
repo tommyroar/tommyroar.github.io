@@ -1,5 +1,18 @@
 [
   {
+    "name": "intentcity",
+    "root_path": "/intentcity/",
+    "link_label": "Live SPA",
+    "docs_path": "/intentcity/docs/",
+    "description": "Find campsites in WA state, set reminders to reserve",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "Mapbox"
+    ],
+    "qr_code": "/thumbnails/intentcity_qr.png"
+  },
+  {
     "name": "Vitamin D",
     "root_path": "/vitamind/",
     "link_label": "App Link",
