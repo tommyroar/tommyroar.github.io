@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import subprocess
 import datetime
 import shutil
@@ -93,6 +94,11 @@ def bundle():
     except Exception as e:
         console.print(f"[red]Failed to write {OUTPUT_FILE}: {e}[/red]")
         return False
+
+def bundle_main():
+    """CLI entry point for uv run bundle."""
+    if not bundle():
+        sys.exit(1)
 
 def handle_git_workflow(action, project_name):
     """Automates branch creation, commit, and push."""
