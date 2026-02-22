@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 import datetime
+import shutil
 from pathlib import Path
 from slugify import slugify
 import questionary
@@ -12,11 +13,14 @@ console = Console()
 
 APPS_DIR = Path("apps")
 PUBLIC_THUMBNAILS_DIR = Path("public/thumbnails")
-BUNDLE_SCRIPT = Path("scripts/bundle_apps.js")
+OUTPUT_FILE = Path("src/data/projects.json")
 BASE_URL = "https://tommyroar.github.io"
 
 if not PUBLIC_THUMBNAILS_DIR.exists():
     PUBLIC_THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
+
+if not OUTPUT_FILE.parent.exists():
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 def generate_qr_code(url_path, slug):
     """Generate a QR code for the project URL."""
@@ -49,11 +53,45 @@ def run_command(cmd, description):
         return False
 
 def bundle():
-    """Runs the node bundle script to update projects.json."""
-    if BUNDLE_SCRIPT.exists():
-        return run_command(["node", str(BUNDLE_SCRIPT)], "Bundling projects")
-    else:
-        console.print("[red]Bundle script not found![/red]")
+    """Native Python implementation of the project bundling logic."""
+    console.print("[yellow]Bundling projects (Python)...[/yellow]")
+    projects = []
+    
+    if not APPS_DIR.exists():
+        console.print("[red]Apps directory not found![/red]")
+        return False
+
+    # Get all project files
+    json_files = list(APPS_DIR.glob("*.json"))
+    
+    for json_file in json_files:
+        try:
+            with open(json_file, "r") as f:
+                data = json.load(f)
+            
+            slug = json_file.stem
+            
+            # Check for matching png thumbnail
+            thumb_file = APPS_DIR / f"{slug}.png"
+            if thumb_file.exists():
+                shutil.copy2(thumb_file, PUBLIC_THUMBNAILS_DIR / f"{slug}.png")
+                data["thumbnail"] = f"/thumbnails/{slug}.png"
+            
+            projects.append(data)
+        except Exception as e:
+            console.print(f"[red]Error processing {json_file.name}: {e}[/red]")
+
+    # Sort projects by name
+    projects.sort(key=lambda x: x.get("name", "").lower())
+
+    # Write final output
+    try:
+        with open(OUTPUT_FILE, "w") as f:
+            json.dump(projects, f, indent=2)
+        console.print(f"[green]Successfully bundled {len(projects)} projects to {OUTPUT_FILE}[/green]")
+        return True
+    except Exception as e:
+        console.print(f"[red]Failed to write {OUTPUT_FILE}: {e}[/red]")
         return False
 
 def handle_git_workflow(action, project_name):
@@ -297,5 +335,7 @@ if __name__ == "__main__":
             edit_project()
         elif sys.argv[1] == "remove":
             remove_project()
+        elif sys.argv[1] == "bundle":
+            bundle()
     else:
         edit_project()
