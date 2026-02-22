@@ -108,6 +108,12 @@ def prompt_project_info(defaults=None):
     ).ask()
     if root_path is None: return None
     
+    link_label = questionary.text(
+        "Link Label (e.g., Live SPA, Open App):",
+        default=defaults.get("link_label", "Live SPA")
+    ).ask()
+    if link_label is None: return None
+
     docs_path = questionary.text(
         "Docs Path (e.g., /maps/docs/ - Leave empty to remove link):",
         default=defaults.get("docs_path", f"{root_path.rstrip('/')}/docs/")
@@ -142,6 +148,7 @@ def prompt_project_info(defaults=None):
     return {
         "name": name,
         "root_path": root_path,
+        "link_label": link_label,
         "docs_path": docs_path,
         "description": description or "",
         "status": status,
@@ -225,6 +232,58 @@ def edit_project():
     except KeyboardInterrupt:
         console.print("\n[yellow]Operation cancelled by user.[/yellow]")
 
+def remove_project():
+    """TUI to remove an existing project."""
+    try:
+        console.print("[bold red]Remove Project[/bold red]")
+        
+        if not APPS_DIR.exists():
+            console.print("[red]Apps directory not found![/red]")
+            return
+            
+        json_files = sorted(list(APPS_DIR.glob("*.json")))
+        if not json_files:
+            console.print("[yellow]No projects found in apps/ directory.[/yellow]")
+            return
+            
+        choices = [f.name for f in json_files]
+        selected_filename = questionary.select(
+            "Select project to REMOVE:",
+            choices=choices
+        ).ask()
+        
+        if not selected_filename:
+            return
+            
+        filepath = APPS_DIR / selected_filename
+        with open(filepath, "r") as f:
+            current_data = json.load(f)
+            
+        confirm = questionary.confirm(
+            f"Are you SURE you want to permanently remove {current_data.get('name', selected_filename)}?",
+            default=False
+        ).ask()
+        
+        if not confirm:
+            console.print("[yellow]Cancelled.[/yellow]")
+            return
+            
+        # Delete JSON
+        filepath.unlink()
+        
+        # Delete QR Code if it exists
+        slug = Path(selected_filename).stem
+        qr_path = PUBLIC_THUMBNAILS_DIR / f"{slug}_qr.png"
+        if qr_path.exists():
+            qr_path.unlink()
+            
+        console.print(f"[green]Successfully removed {selected_filename} and its QR code.[/green]")
+        
+        if bundle():
+            handle_git_workflow()
+    except KeyboardInterrupt:
+        console.print("\n[yellow]Operation cancelled by user.[/yellow]")
+
 if __name__ == "__main__":
     import sys
     # This is fallback if not called via uv scripts
@@ -233,5 +292,7 @@ if __name__ == "__main__":
             add_project()
         elif sys.argv[1] == "edit":
             edit_project()
+        elif sys.argv[1] == "remove":
+            remove_project()
     else:
         edit_project()

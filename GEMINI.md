@@ -6,9 +6,10 @@ This repository serves as the central index for all projects. It uses a manual u
 
 When updating the project index or adding a new app stub:
 
-1.  **Manage Projects**: Use the Python TUI to add or update projects.
+1.  **Manage Projects**: Use the Python TUI to add, update, or remove projects.
     *   `uv run add`: Add a new project.
     *   `uv run edit`: List and edit existing projects.
+    *   `uv run remove`: List and remove projects.
     *   *These scripts automatically run the bundle process.*
 2.  **Local Test**: Run `npm test` to ensure the bundling didn't break existing tests.
 3.  **Deploy via PR**: Follow the deployment policy below: create a branch, push, and raise a PR against `main`.
