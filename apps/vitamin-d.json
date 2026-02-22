@@ -1,0 +1,14 @@
+{
+  "name": "Vitamin D",
+      "root_path": "/vitamin-d/",  "link_label": "App Link",
+      "docs_path": "/vitamin-d/docs/",  "description": "**Vitamind** is a specialized tool designed to help users estimate their Vitamin D production from sunlight. By combining geographic data (via Mapbox) with solar position calculations (via SunCalc), it provides insights into the best times and locations for natural Vitamin D synthesis.",
+  "status": "Active",
+  "tags": [
+    "React",
+    "Mapbox",
+    "Health",
+    "Visualization",
+    "GitHub Pages"
+  ],
+  "qr_code": "/thumbnails/vitamin-d_qr.png"
+}
