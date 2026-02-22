@@ -15,7 +15,7 @@ dependencies = [
 add = "scripts.manage_projects:add_project"
 edit = "scripts.manage_projects:edit_project"
 remove = "scripts.manage_projects:remove_project"
-bundle = "scripts.manage_projects:bundle"
+bundle = "scripts.manage_projects:bundle_main"
 
 [tool.uv]
 managed = true
