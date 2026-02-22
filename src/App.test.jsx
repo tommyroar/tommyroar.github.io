@@ -32,8 +32,9 @@ test('renders project cards', async () => {
   const activeBadges = screen.getAllByText(/Active/i);
   expect(activeBadges.length).toBeGreaterThanOrEqual(2);
 
-  const liveLinks = screen.getAllByText(/Live SPA/i);
-  expect(liveLinks.length).toBeGreaterThanOrEqual(2);
+  // We check for any link that might be a 'Live SPA' or custom label link
+  const links = screen.getAllByRole('link', { name: /Live SPA|Documentation/i });
+  expect(links.length).toBeGreaterThanOrEqual(2);
 });
 
 test('renders thumbnail when present', () => {

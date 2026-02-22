@@ -98,7 +98,7 @@ const App = () => {
                         <img 
                           src={item.thumbnail} 
                           alt={item.name} 
-                          style={{ width: '100%', height: 'auto', borderRadius: '4px', border: '1px solid #eaeded' }} 
+                          style={{ width: '50%', height: 'auto', borderRadius: '4px', border: '1px solid #eaeded' }} 
                         />
                       </Box>
                     )
@@ -117,20 +117,17 @@ const App = () => {
                     id: "links",
                     header: "Links",
                     content: item => (
-                      <SpaceBetween direction="vertical" size="s">
+                      <SpaceBetween direction="horizontal" size="l" alignItems="center">
                         <SpaceBetween direction="horizontal" size="m">
-                          <Link href={item.root_path} external>Live SPA</Link>
+                          <Link href={item.root_path} external>{item.link_label || 'Live SPA'}</Link>
                           {item.docs_path && <Link href={item.docs_path} external>Documentation</Link>}
                         </SpaceBetween>
                         {item.qr_code && (
-                          <Box margin={{ top: "xs" }}>
-                            <Box color="text-label" variant="small">Scan to visit:</Box>
-                            <img 
-                              src={item.qr_code} 
-                              alt={`QR Code for ${item.name}`} 
-                              style={{ width: '100px', height: '100px', marginTop: '4px', border: '1px solid #eaeded', padding: '4px', background: 'white' }} 
-                            />
-                          </Box>
+                          <img 
+                            src={item.qr_code} 
+                            alt={`QR Code for ${item.name}`} 
+                            style={{ width: '64px', height: '64px', border: '1px solid #eaeded', padding: '2px', background: 'white' }} 
+                          />
                         )}
                       </SpaceBetween>
                     )
