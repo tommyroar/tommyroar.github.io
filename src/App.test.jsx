@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
 import App from '../src/App';
 import React from 'react';
+import projectsData from './data/projects.json';
 
 test('renders main header', () => {
   render(<App />);
@@ -15,20 +16,25 @@ test('renders dark mode toggle', () => {
   expect(toggleElement).toBeInTheDocument();
 });
 
-test('renders project cards', async () => {
+test('renders project cards with exact link labels', async () => {
   render(<App />);
   
-  // Check for any project card heading (h4 level link in our Card definition)
-  const projectLinks = await screen.findAllByRole('link', { name: /Vitamin|intentcity/i });
-  expect(projectLinks.length).toBeGreaterThan(0);
-  
-  // Verify that we have at least one Active badge
-  const activeBadges = await screen.findAllByText(/Active/i);
-  expect(activeBadges.length).toBeGreaterThanOrEqual(1);
+  for (const project of projectsData) {
+    // Verify the project heading exists
+    const projectHeading = await screen.findByRole('link', { name: new RegExp(project.name, 'i') });
+    expect(projectHeading).toBeInTheDocument();
 
-  // Check for presence of primary links (regardless of their label)
-  const links = screen.getAllByRole('link', { name: /SPA|App|Link|Documentation/i });
-  expect(links.length).toBeGreaterThanOrEqual(1);
+    // Verify the exact link label exists
+    const expectedLabel = project.link_label || 'Live SPA';
+    const liveLinks = screen.getAllByRole('link', { name: new RegExp(expectedLabel, 'i') });
+    
+    // Ensure at least one link with this label is present (might be multiple projects with same label)
+    expect(liveLinks.length).toBeGreaterThanOrEqual(1);
+    
+    // Verify specific href for this project's link
+    const specificLink = liveLinks.find(l => l.getAttribute('href') === project.root_path);
+    expect(specificLink).toBeDefined();
+  }
 });
 
 test('renders thumbnail when present', () => {
