@@ -1,18 +1,5 @@
 [
   {
-    "name": "intentcity",
-    "root_path": "/intentcity/",
-    "docs_path": "",
-    "description": "",
-    "status": "Active",
-    "tags": [
-      "Mapbox",
-      "React",
-      "Github Pages"
-    ],
-    "qr_code": "/thumbnails/intentcity_qr.png"
-  },
-  {
     "name": "Vitamin D",
     "root_path": "/vitamind/",
     "link_label": "App Link",

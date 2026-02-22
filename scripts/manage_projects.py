@@ -56,22 +56,25 @@ def bundle():
         console.print("[red]Bundle script not found![/red]")
         return False
 
-def handle_git_workflow():
+def handle_git_workflow(action, project_name):
     """Automates branch creation, commit, and push."""
     if not questionary.confirm("Do you want to create a branch and push these changes to GitHub?").ask():
         show_manual_instructions()
         return
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M")
-    branch_name = f"update-project-{timestamp}"
+    branch_name = f"{action.lower()}-{slugify(project_name)}-{timestamp}"
+    commit_message = f"{action.capitalize()} project: {project_name}"
     
     if not run_command(["git", "checkout", "-b", branch_name], f"Creating branch {branch_name}"): return
     if not run_command(["git", "add", "."], "Staging changes"): return
-    if not run_command(["git", "commit", "-m", "Update project index via TUI"], "Committing changes"): return
+    if not run_command(["git", "commit", "-m", commit_message], f"Committing: {commit_message}"): return
     if not run_command(["git", "push", "-u", "origin", branch_name], "Pushing to GitHub"): return
 
     console.print("\n[bold green]Success! Branch pushed to GitHub.[/bold green]")
-    console.print(f"[bold]Create a PR here:[/bold] https://github.com/tommyroar/tommyroar.github.io/compare/main...{branch_name}")
+    # Use the /compare/branch-name?expand=1 format which GitHub handles better for direct PR creation
+    pr_url = f"https://github.com/tommyroar/tommyroar.github.io/compare/{branch_name}?expand=1"
+    console.print(f"[bold]Create your Pull Request here:[/bold]\n[blue]{pr_url}[/blue]")
     console.print("\n[italic]Once merged to main, the site will redeploy automatically.[/italic]")
 
 def show_manual_instructions():
@@ -181,7 +184,7 @@ def add_project():
             
         console.print(f"[green]Successfully created {filename}[/green]")
         if bundle():
-            handle_git_workflow()
+            handle_git_workflow("add", data["name"])
     except KeyboardInterrupt:
         console.print("\n[yellow]Operation cancelled by user.[/yellow]")
 
@@ -228,7 +231,7 @@ def edit_project():
             
         console.print(f"[green]Successfully updated {filepath}[/green]")
         if bundle():
-            handle_git_workflow()
+            handle_git_workflow("update", new_data["name"])
     except KeyboardInterrupt:
         console.print("\n[yellow]Operation cancelled by user.[/yellow]")
 
@@ -280,7 +283,7 @@ def remove_project():
         console.print(f"[green]Successfully removed {selected_filename} and its QR code.[/green]")
         
         if bundle():
-            handle_git_workflow()
+            handle_git_workflow("remove", current_data.get('name', selected_filename))
     except KeyboardInterrupt:
         console.print("\n[yellow]Operation cancelled by user.[/yellow]")
 
