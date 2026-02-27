@@ -24,14 +24,6 @@ const Home = ({ projects, isDarkMode, setIsDarkMode }) => (
       <Header
         variant="h1"
         description="A central hub for specialized tools and geographic visualizations."
-        actions={
-          <Toggle
-            onChange={({ detail }) => setIsDarkMode(detail.checked)}
-            checked={isDarkMode}
-          >
-            Dark mode
-          </Toggle>
-        }
       >
         tommyroar.github.io
       </Header>
@@ -142,27 +134,16 @@ const App = () => {
             onClick: () => navigate('/monitoring')
           },
           {
-            type: "menu-dropdown",
-            text: "Settings",
-            iconName: "settings",
-            items: [
-              {
-                id: "theme",
-                text: "Dark mode",
-                itemType: "section",
-                items: [
-                  {
-                    id: "dark-mode-toggle",
-                    text: isDarkMode ? "Enabled" : "Disabled",
-                  }
-                ]
-              }
-            ]
-          },
-          {
             type: "button",
-            text: isDarkMode ? "Light Mode" : "Dark Mode",
-            onClick: () => setIsDarkMode(!isDarkMode)
+            text: (
+              <Toggle
+                onChange={({ detail }) => setIsDarkMode(detail.checked)}
+                checked={isDarkMode}
+              >
+                Dark mode
+              </Toggle>
+            ),
+            disableUtilityStyles: true,
           }
         ]}
       />

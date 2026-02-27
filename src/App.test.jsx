@@ -21,8 +21,8 @@ test('renders dark mode toggle', () => {
       <App />
     </MemoryRouter>
   );
-  const toggleElement = screen.getByText(/Dark mode/i);
-  expect(toggleElement).toBeInTheDocument();
+  const toggleElements = screen.getAllByText(/Dark mode/i);
+  expect(toggleElements.length).toBeGreaterThan(0);
 });
 
 test('renders project cards with exact link labels', async () => {
