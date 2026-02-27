@@ -1,23 +1,42 @@
-import { render, screen } from '@testing-library/react';
-import { expect, test, vi } from 'vitest';
+import { render, screen, cleanup } from '@testing-library/react';
+import { expect, test, vi, beforeEach } from 'vitest';
 import App from '../src/App';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import projectsData from './data/projects.json';
 
+beforeEach(() => {
+  cleanup();
+  document.body.className = '';
+  document.documentElement.className = '';
+});
+
 test('renders main header', () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   const headerElements = screen.getAllByText(/tommyroar.github.io/i);
   expect(headerElements.length).toBeGreaterThan(0);
 });
 
 test('renders dark mode toggle', () => {
-  render(<App />);
-  const toggleElement = screen.getByText(/Dark mode/i);
-  expect(toggleElement).toBeInTheDocument();
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  const toggleButton = screen.getByRole('button', { name: /Toggle dark mode/i });
+  expect(toggleButton).toBeInTheDocument();
 });
 
 test('renders project cards with exact link labels', async () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   
   for (const project of projectsData) {
     // Verify the project heading exists
@@ -38,18 +57,72 @@ test('renders project cards with exact link labels', async () => {
 });
 
 test('renders thumbnail when present', () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   // Ensure the page renders without crashing even with mixed data
 });
 
 test('renders Documentation link when present', async () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   const docsLinks = await screen.findAllByText(/Documentation/i);
   expect(docsLinks.length).toBeGreaterThan(0);
 });
 
 test('renders QR codes for projects', async () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   const qrCodes = await screen.findAllByAltText(/QR Code for/i);
   expect(qrCodes.length).toBeGreaterThan(0);
+});
+
+test('navigates to monitoring page', async () => {
+  const { fireEvent } = await import('@testing-library/react');
+  
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <App />
+    </MemoryRouter>
+  );
+
+  const monitoringButton = screen.getByRole('button', { name: /Monitoring/i });
+  fireEvent.click(monitoringButton);
+
+  const monitoringHeader = await screen.findByRole('heading', { name: /Monitoring/i });
+  expect(monitoringHeader).toBeInTheDocument();
+  expect(screen.getByText(/Monitoring page is blank for now/i)).toBeInTheDocument();
+});
+
+test('toggles dark mode', async () => {
+  const { fireEvent, act } = await import('@testing-library/react');
+  const { container } = render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  
+  const getToggleButton = () => screen.getByRole('button', { name: /Toggle dark mode/i });
+  const appContainer = container.querySelector('#h');
+  
+  // Initially dark mode is on by default state (text is 🌙)
+  expect(screen.getAllByText('🌙').length).toBeGreaterThan(0);
+  
+  await act(async () => {
+    fireEvent.click(getToggleButton());
+  });
+  expect(screen.getAllByText('🌞').length).toBeGreaterThan(0);
+  
+  await act(async () => {
+    fireEvent.click(getToggleButton());
+  });
+  expect(screen.getAllByText('🌙').length).toBeGreaterThan(0);
 });
