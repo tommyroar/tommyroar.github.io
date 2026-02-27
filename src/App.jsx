@@ -109,19 +109,22 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
+    const theme = isDarkMode ? Mode.Dark : Mode.Light;
+    applyMode(theme);
+    
+    // Explicitly set body classes and attributes for better component support
     if (isDarkMode) {
-      applyMode(Mode.Dark);
-      document.documentElement.classList.add('awsui-dark-mode');
+      document.body.classList.add('awsui-dark-mode');
+      document.body.setAttribute('data-awsui-color-mode', 'dark');
     } else {
-      applyMode(Mode.Light);
-      document.documentElement.classList.remove('awsui-dark-mode');
+      document.body.classList.remove('awsui-dark-mode');
+      document.body.setAttribute('data-awsui-color-mode', 'light');
     }
   }, [isDarkMode]);
 
   return (
     <div id="h" className={isDarkMode ? "awsui-dark-mode" : ""} style={{ position: 'relative' }}>
       <TopNavigation
-        key={isDarkMode ? "dark" : "light"}
         identity={{
           href: "#/",
           title: "tommyroar.github.io",
