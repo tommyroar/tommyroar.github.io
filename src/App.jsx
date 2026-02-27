@@ -142,7 +142,9 @@ const App = () => {
           }
           .awsui-context-top-navigation [class*="title"], 
           .awsui-context-top-navigation [class*="identity"],
-          .awsui-context-top-navigation [class*="utility"] {
+          .awsui-context-top-navigation [class*="utility"],
+          .awsui-context-top-navigation a,
+          .awsui-context-top-navigation span {
             color: ${isDarkMode ? '#ffffff' : '#0f141a'} !important;
           }
         `}
