@@ -112,18 +112,41 @@ const App = () => {
     const theme = isDarkMode ? Mode.Dark : Mode.Light;
     applyMode(theme);
     
-    // Explicitly set body classes and attributes for better component support
+    // Enable visual refresh globally
+    document.documentElement.classList.add('awsui-visual-refresh');
+    document.body.classList.add('awsui-visual-refresh');
+    
     if (isDarkMode) {
+      document.documentElement.classList.remove('awsui-light-mode');
+      document.documentElement.classList.add('awsui-dark-mode');
+      document.documentElement.setAttribute('data-awsui-color-mode', 'dark');
+      document.body.classList.remove('awsui-light-mode');
       document.body.classList.add('awsui-dark-mode');
       document.body.setAttribute('data-awsui-color-mode', 'dark');
     } else {
+      document.documentElement.classList.remove('awsui-dark-mode');
+      document.documentElement.classList.add('awsui-light-mode');
+      document.documentElement.setAttribute('data-awsui-color-mode', 'light');
       document.body.classList.remove('awsui-dark-mode');
+      document.body.classList.add('awsui-light-mode');
       document.body.setAttribute('data-awsui-color-mode', 'light');
     }
   }, [isDarkMode]);
 
   return (
-    <div id="h" className={isDarkMode ? "awsui-dark-mode" : ""} style={{ position: 'relative' }}>
+    <div id="h" className={isDarkMode ? "awsui-dark-mode" : "awsui-light-mode"} style={{ position: 'relative' }}>
+      <style>
+        {`
+          .awsui-context-top-navigation header {
+            background-color: ${isDarkMode ? '#161d26' : '#ffffff'} !important;
+          }
+          .awsui-context-top-navigation [class*="title"], 
+          .awsui-context-top-navigation [class*="identity"],
+          .awsui-context-top-navigation [class*="utility"] {
+            color: ${isDarkMode ? '#ffffff' : '#0f141a'} !important;
+          }
+        `}
+      </style>
       <TopNavigation
         identity={{
           href: "#/",
