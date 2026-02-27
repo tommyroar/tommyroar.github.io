@@ -21,8 +21,8 @@ test('renders dark mode toggle', () => {
       <App />
     </MemoryRouter>
   );
-  const toggleElements = screen.getAllByText(/Dark mode/i);
-  expect(toggleElements.length).toBeGreaterThan(0);
+  const toggleButton = screen.getByRole('button', { name: /Toggle dark mode/i });
+  expect(toggleButton).toBeInTheDocument();
 });
 
 test('renders project cards with exact link labels', async () => {
@@ -94,4 +94,24 @@ test('navigates to monitoring page', async () => {
   const monitoringHeader = await screen.findByRole('heading', { name: /Monitoring/i });
   expect(monitoringHeader).toBeInTheDocument();
   expect(screen.getByText(/Monitoring page is blank for now/i)).toBeInTheDocument();
+});
+
+test('toggles dark mode', async () => {
+  const { fireEvent } = await import('@testing-library/react');
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  
+  const toggleButton = screen.getByRole('button', { name: /Toggle dark mode/i });
+  
+  // Initially dark mode is on by default state
+  expect(document.body).toHaveClass('awsui-dark-mode');
+  
+  fireEvent.click(toggleButton);
+  expect(document.body).not.toHaveClass('awsui-dark-mode');
+  
+  fireEvent.click(toggleButton);
+  expect(document.body).toHaveClass('awsui-dark-mode');
 });

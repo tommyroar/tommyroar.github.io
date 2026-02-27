@@ -135,14 +135,20 @@ const App = () => {
           },
           {
             type: "button",
+            ariaLabel: "Toggle dark mode",
             text: (
-              <Toggle
-                onChange={({ detail }) => setIsDarkMode(detail.checked)}
-                checked={isDarkMode}
-              >
-                Dark mode
-              </Toggle>
+              <Box margin={{ left: "s" }}>
+                <SpaceBetween direction="horizontal" size="xs" alignItems="center">
+                  <span style={{ fontSize: '1.2rem' }}>🌞</span>
+                  <Toggle
+                    checked={isDarkMode}
+                    onChange={() => {}}
+                  />
+                  <span style={{ fontSize: '1.2rem' }}>🌙</span>
+                </SpaceBetween>
+              </Box>
             ),
+            onClick: () => setIsDarkMode(!isDarkMode),
             disableUtilityStyles: true,
           }
         ]}
