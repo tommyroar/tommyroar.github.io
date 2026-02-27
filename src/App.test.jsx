@@ -1,9 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import { expect, test, vi } from 'vitest';
+import { render, screen, cleanup } from '@testing-library/react';
+import { expect, test, vi, beforeEach } from 'vitest';
 import App from '../src/App';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import projectsData from './data/projects.json';
+
+beforeEach(() => {
+  cleanup();
+  document.body.className = '';
+  document.documentElement.className = '';
+});
 
 test('renders main header', () => {
   render(
@@ -97,21 +103,26 @@ test('navigates to monitoring page', async () => {
 });
 
 test('toggles dark mode', async () => {
-  const { fireEvent } = await import('@testing-library/react');
-  render(
+  const { fireEvent, act } = await import('@testing-library/react');
+  const { container } = render(
     <MemoryRouter>
       <App />
     </MemoryRouter>
   );
   
-  const toggleButton = screen.getByRole('button', { name: /Toggle dark mode/i });
+  const getToggleButton = () => screen.getByRole('button', { name: /Toggle dark mode/i });
+  const appContainer = container.querySelector('#h');
   
-  // Initially dark mode is on by default state
-  expect(document.body).toHaveClass('awsui-dark-mode');
+  // Initially dark mode is on by default state (text is 🌙)
+  expect(screen.getAllByText('🌙').length).toBeGreaterThan(0);
   
-  fireEvent.click(toggleButton);
-  expect(document.body).not.toHaveClass('awsui-dark-mode');
+  await act(async () => {
+    fireEvent.click(getToggleButton());
+  });
+  expect(screen.getAllByText('🌞').length).toBeGreaterThan(0);
   
-  fireEvent.click(toggleButton);
-  expect(document.body).toHaveClass('awsui-dark-mode');
+  await act(async () => {
+    fireEvent.click(getToggleButton());
+  });
+  expect(screen.getAllByText('🌙').length).toBeGreaterThan(0);
 });

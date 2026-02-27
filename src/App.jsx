@@ -111,14 +111,17 @@ const App = () => {
   useEffect(() => {
     if (isDarkMode) {
       applyMode(Mode.Dark);
+      document.documentElement.classList.add('awsui-dark-mode');
     } else {
       applyMode(Mode.Light);
+      document.documentElement.classList.remove('awsui-dark-mode');
     }
   }, [isDarkMode]);
 
   return (
-    <div id="h" style={{ position: 'relative' }}>
+    <div id="h" className={isDarkMode ? "awsui-dark-mode" : ""} style={{ position: 'relative' }}>
       <TopNavigation
+        key={isDarkMode ? "dark" : "light"}
         identity={{
           href: "#/",
           title: "tommyroar.github.io",
@@ -136,20 +139,8 @@ const App = () => {
           {
             type: "button",
             ariaLabel: "Toggle dark mode",
-            text: (
-              <Box margin={{ left: "s" }}>
-                <SpaceBetween direction="horizontal" size="xs" alignItems="center">
-                  <span style={{ fontSize: '1.2rem' }}>🌞</span>
-                  <Toggle
-                    checked={isDarkMode}
-                    onChange={() => {}}
-                  />
-                  <span style={{ fontSize: '1.2rem' }}>🌙</span>
-                </SpaceBetween>
-              </Box>
-            ),
+            text: isDarkMode ? "🌙" : "🌞",
             onClick: () => setIsDarkMode(!isDarkMode),
-            disableUtilityStyles: true,
           }
         ]}
       />
