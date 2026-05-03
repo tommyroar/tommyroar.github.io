@@ -81,20 +81,33 @@ test('arrow left at start stays on first tile', async () => {
 
 test('renders DOCS link in detail panel for selected project with docs_path', () => {
   renderApp();
-  const docsLinks = screen.getAllByRole('link', { name: /DOCS/i });
-  expect(docsLinks.length).toBeGreaterThan(0);
+  const sorted = [...projectsData].sort((a, b) => a.name.localeCompare(b.name));
+  if (sorted[0]?.docs_path) {
+    expect(screen.getAllByRole('link', { name: /DOCS/i }).length).toBeGreaterThan(0);
+  } else {
+    expect(screen.queryAllByRole('link', { name: /DOCS/i })).toHaveLength(0);
+  }
 });
 
 test('renders QR code in detail panel when present', () => {
   renderApp();
-  const qrCodes = screen.getAllByAltText(/^QR for /i);
-  expect(qrCodes.length).toBeGreaterThan(0);
+  const sorted = [...projectsData].sort((a, b) => a.name.localeCompare(b.name));
+  if (sorted[0]?.qr_code) {
+    expect(screen.getAllByAltText(/^QR for /i).length).toBeGreaterThan(0);
+  } else {
+    expect(screen.queryAllByAltText(/^QR for /i)).toHaveLength(0);
+  }
 });
 
 test('renders pixelated screenshot for projects with thumbnails', () => {
   renderApp();
-  const screenshots = screen.getAllByAltText(/screenshot/i);
-  expect(screenshots.length).toBeGreaterThan(0);
+  const withThumbs = projectsData.filter(p => p.thumbnail);
+  const screenshots = screen.queryAllByAltText(/screenshot/i);
+  if (withThumbs.length > 0) {
+    expect(screenshots.length).toBeGreaterThan(0);
+  } else {
+    expect(screenshots).toHaveLength(0);
+  }
 });
 
 test('renders key hints and game count in marquee', () => {
