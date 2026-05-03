@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.ns-root {
+  --ns-bg: #0b1230;
+  --ns-bg-2: #181f47;
+  --ns-panel: #11183a;
+  --ns-border: #f2f2f2;
+  --ns-accent: #e60012;
+  --ns-accent-2: #3cd070;
+  --ns-yellow: #f7d51d;
+  --ns-text: #f4f4f4;
+  --ns-text-dim: #a4a8c8;
+
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  background:
+    radial-gradient(circle at top, #1a225a 0%, #0b1230 60%, #05071a 100%);
+  color: var(--ns-text);
+  min-height: calc(100vh - 60px);
+  padding: 24px;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  position: relative;
+  overflow: hidden;
+}
+
+.ns-root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 1;
+}
+
+.ns-root > * {
+  position: relative;
+  z-index: 2;
+}
+
+.ns-marquee {
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 24px;
+  background: linear-gradient(180deg, var(--ns-accent) 0%, #a8000d 100%);
+  border: 4px solid var(--ns-border);
+  box-shadow:
+    0 0 0 4px var(--ns-bg),
+    0 0 0 8px var(--ns-border),
+    0 8px 0 8px rgba(0, 0, 0, 0.5);
+  animation: ns-marquee-blink 4s infinite;
+}
+
+@keyframes ns-marquee-blink {
+  0%, 95%, 100% { filter: brightness(1); }
+  97% { filter: brightness(1.4); }
+}
+
+.ns-marquee-title {
+  display: block;
+  font-size: 22px;
+  letter-spacing: 4px;
+  text-shadow: 3px 3px 0 #000;
+  margin-bottom: 8px;
+}
+
+.ns-marquee-sub {
+  display: block;
+  font-size: 10px;
+  color: var(--ns-yellow);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.ns-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .ns-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ns-grid {
+  display: grid;
+  gap: 16px;
+  background: var(--ns-panel);
+  padding: 20px;
+  border: 4px solid var(--ns-border);
+  box-shadow:
+    inset 0 0 0 4px var(--ns-bg),
+    8px 8px 0 0 rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 600px) {
+  .ns-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.ns-tile {
+  all: unset;
+  cursor: pointer;
+  background: #2a3170;
+  padding: 8px;
+  border: 4px solid #4a5290;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 80ms steps(2);
+  font-family: inherit;
+  text-align: center;
+  outline: none;
+  position: relative;
+}
+
+.ns-tile:hover {
+  border-color: var(--ns-yellow);
+}
+
+.ns-tile-selected {
+  transform: translate(-2px, -2px);
+  border-color: var(--ns-yellow);
+  box-shadow:
+    4px 4px 0 0 var(--ns-accent),
+    0 0 0 2px var(--ns-yellow) inset;
+  animation: ns-pulse 0.6s steps(2) infinite alternate;
+}
+
+@keyframes ns-pulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.25); }
+}
+
+.ns-tile-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.ns-tile-thumb,
+.ns-detail-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.ns-tile-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0px,
+    rgba(0, 0, 0, 0.35) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.ns-tile-label {
+  font-size: 9px;
+  color: var(--ns-text);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ns-tile-selected .ns-tile-label {
+  color: var(--ns-yellow);
+}
+
+.ns-placeholder {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.ns-placeholder-cell {
+  width: 100%;
+  height: 100%;
+}
+
+.ns-detail {
+  background: var(--ns-panel);
+  border: 4px solid var(--ns-border);
+  padding: 20px;
+  box-shadow:
+    inset 0 0 0 4px var(--ns-bg),
+    8px 8px 0 0 rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ns-detail-empty {
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  color: var(--ns-text-dim);
+}
+
+.ns-detail-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.ns-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ns-detail-title {
+  font-size: 16px;
+  color: var(--ns-yellow);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.ns-detail-status {
+  font-size: 10px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.ns-status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #000;
+  animation: ns-blink 1s steps(2) infinite;
+}
+
+@keyframes ns-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.ns-detail-description {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ns-text);
+  background: #000;
+  padding: 12px;
+  border: 2px solid #2a3170;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.ns-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ns-tag {
+  font-size: 8px;
+  background: var(--ns-bg-2);
+  border: 2px solid var(--ns-text-dim);
+  padding: 4px 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ns-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ns-btn {
+  all: unset;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: var(--ns-bg-2);
+  color: var(--ns-text);
+  border: 3px solid var(--ns-text);
+  text-shadow: 1px 1px 0 #000;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.6);
+  text-align: center;
+  display: inline-block;
+}
+
+.ns-btn:hover,
+.ns-btn:focus {
+  background: var(--ns-yellow);
+  color: #000;
+  text-shadow: none;
+}
+
+.ns-btn-primary {
+  background: var(--ns-accent);
+  border-color: var(--ns-yellow);
+}
+
+.ns-btn-primary:hover,
+.ns-btn-primary:focus {
+  background: var(--ns-yellow);
+  color: var(--ns-accent);
+}
+
+.ns-qr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: #fff;
+  border: 3px solid #000;
+  align-self: flex-start;
+}
+
+.ns-qr img {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+
+.ns-qr span {
+  color: #000;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.ns-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 16px;
+  font-size: 12px;
+  color: var(--ns-text-dim);
+  letter-spacing: 2px;
+}
+
+.ns-footer {
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: var(--ns-bg-2);
+  border: 4px solid var(--ns-border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--ns-text-dim);
+}
+
+.ns-footer kbd {
+  display: inline-block;
+  background: #000;
+  color: var(--ns-yellow);
+  border: 2px solid var(--ns-yellow);
+  padding: 2px 6px;
+  margin: 0 2px;
+  font-family: inherit;
+  font-size: 9px;
+}
+
+/* Light mode override - softer palette but keep the retro feel */
+.awsui-light-mode .ns-root {
+  background: radial-gradient(circle at top, #d8e0ff 0%, #b8c4f0 60%, #8a9adc 100%);
+  color: #0b1230;
+}
+
+.awsui-light-mode .ns-marquee-sub,
+.awsui-light-mode .ns-detail-title {
+  color: #b8000c;
+}
+
+.awsui-light-mode .ns-detail-description {
+  background: #fffce0;
+  color: #0b1230;
+  border-color: #0b1230;
+}
+
+.awsui-light-mode .ns-tag {
+  background: #fff;
+  color: #0b1230;
+}
+
+.awsui-light-mode .ns-footer kbd {
+  background: #fff;
+  color: #b8000c;
+  border-color: #b8000c;
+}

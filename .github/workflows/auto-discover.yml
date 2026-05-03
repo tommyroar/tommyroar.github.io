@@ -1,0 +1,75 @@
+name: Auto-Discover Projects
+
+on:
+  schedule:
+    # Run every day at 06:30 UTC
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+    inputs:
+      owner:
+        description: GitHub user/org whose Pages-deployed repos should be discovered
+        required: false
+        default: tommyroar
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync environment
+        run: uv sync
+
+      - name: Discover GitHub Pages deployments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCOVERY_OWNER: ${{ github.event.inputs.owner || 'tommyroar' }}
+        run: uv run discover
+
+      - name: Bundle apps data
+        run: uv run bundle
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain apps src/data)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-discover/projects
+          base: main
+          commit-message: "chore: auto-discover GitHub Pages projects"
+          title: "Auto-discovered project updates"
+          body: |
+            This PR was opened automatically by `.github/workflows/auto-discover.yml`.
+
+            It scanned every public repo under the configured GitHub user, found
+            those with GitHub Pages enabled on `*.github.io`, and added or refreshed
+            stubs in `apps/` accordingly. Existing manual stubs (those without an
+            `auto_discovered: true` flag) are left untouched.
+
+            Review the diff, then merge to redeploy the index.
+          add-paths: |
+            apps/**
+            src/data/**
+          delete-branch: true
