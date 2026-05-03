@@ -1,5 +1,5 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import { expect, test, vi, beforeEach } from 'vitest';
+import { render, screen, cleanup, fireEvent, act } from '@testing-library/react';
+import { expect, test, beforeEach } from 'vitest';
 import App from '../src/App';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
@@ -11,83 +11,101 @@ beforeEach(() => {
   document.documentElement.className = '';
 });
 
-test('renders main header', () => {
+const renderApp = () =>
   render(
     <MemoryRouter>
       <App />
     </MemoryRouter>
   );
+
+test('renders TopNavigation header', () => {
+  renderApp();
   const headerElements = screen.getAllByText(/tommyroar.github.io/i);
   expect(headerElements.length).toBeGreaterThan(0);
 });
 
+test('renders the marquee title', () => {
+  renderApp();
+  expect(screen.getByText(/TOMMYROAR SYSTEM/i)).toBeInTheDocument();
+  expect(screen.getByText(/SELECT GAME/i)).toBeInTheDocument();
+});
+
 test('renders dark mode toggle', () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
+  renderApp();
   const toggleButton = screen.getByRole('button', { name: /Toggle dark mode/i });
   expect(toggleButton).toBeInTheDocument();
 });
 
-test('renders project cards with exact link labels', async () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  
+test('renders a tile for every project with correct href', () => {
+  renderApp();
   for (const project of projectsData) {
-    // Verify the project heading exists
-    const projectHeading = await screen.findByRole('link', { name: new RegExp(project.name, 'i') });
-    expect(projectHeading).toBeInTheDocument();
-
-    // Verify the exact link label exists
-    const expectedLabel = project.link_label || 'Live SPA';
-    const liveLinks = screen.getAllByRole('link', { name: new RegExp(expectedLabel, 'i') });
-    
-    // Ensure at least one link with this label is present (might be multiple projects with same label)
-    expect(liveLinks.length).toBeGreaterThanOrEqual(1);
-    
-    // Verify specific href for this project's link
-    const specificLink = liveLinks.find(l => l.getAttribute('href') === project.root_path);
-    expect(specificLink).toBeDefined();
+    const tile = screen.getByRole('link', { name: new RegExp(`Launch ${project.name}`, 'i') });
+    expect(tile).toBeInTheDocument();
+    expect(tile.getAttribute('href')).toBe(project.root_path);
   }
 });
 
-test('renders thumbnail when present', () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  // Ensure the page renders without crashing even with mixed data
+test('first tile is selected by default and shows detail panel', () => {
+  renderApp();
+  const sorted = [...projectsData].sort((a, b) => a.name.localeCompare(b.name));
+  const first = sorted[0];
+  const tiles = screen.getAllByRole('link', { name: /^Launch / });
+  expect(tiles[0].getAttribute('aria-current')).toBe('true');
+  expect(screen.getAllByText(new RegExp(first.name, 'i')).length).toBeGreaterThan(0);
 });
 
-test('renders Documentation link when present', async () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  const docsLinks = await screen.findAllByText(/Documentation/i);
+test('arrow right moves selection to next tile', async () => {
+  renderApp();
+  const tiles = screen.getAllByRole('link', { name: /^Launch / });
+  expect(tiles[0].getAttribute('aria-current')).toBe('true');
+
+  await act(async () => {
+    fireEvent.keyDown(window, { key: 'ArrowRight' });
+  });
+
+  const updated = screen.getAllByRole('link', { name: /^Launch / });
+  if (updated.length > 1) {
+    expect(updated[1].getAttribute('aria-current')).toBe('true');
+    expect(updated[0].getAttribute('aria-current')).toBeNull();
+  }
+});
+
+test('arrow left at start stays on first tile', async () => {
+  renderApp();
+  await act(async () => {
+    fireEvent.keyDown(window, { key: 'ArrowLeft' });
+  });
+  const tiles = screen.getAllByRole('link', { name: /^Launch / });
+  expect(tiles[0].getAttribute('aria-current')).toBe('true');
+});
+
+test('renders DOCS link in detail panel for selected project with docs_path', () => {
+  renderApp();
+  const docsLinks = screen.getAllByRole('link', { name: /DOCS/i });
   expect(docsLinks.length).toBeGreaterThan(0);
 });
 
-test('renders QR codes for projects', async () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  const qrCodes = await screen.findAllByAltText(/QR Code for/i);
+test('renders QR code in detail panel when present', () => {
+  renderApp();
+  const qrCodes = screen.getAllByAltText(/^QR for /i);
   expect(qrCodes.length).toBeGreaterThan(0);
 });
 
+test('renders pixelated screenshot for projects with thumbnails', () => {
+  renderApp();
+  const screenshots = screen.getAllByAltText(/screenshot/i);
+  expect(screenshots.length).toBeGreaterThan(0);
+});
+
+test('renders footer with key hints and game count', () => {
+  renderApp();
+  expect(screen.getByText(/MOVE/i)).toBeInTheDocument();
+  const launchHints = screen.getAllByText(/LAUNCH/i);
+  expect(launchHints.length).toBeGreaterThan(0);
+  expect(screen.getByText(new RegExp(`^${projectsData.length} GAMES?$`))).toBeInTheDocument();
+});
+
 test('navigates to monitoring page', async () => {
-  const { fireEvent } = await import('@testing-library/react');
-  
   render(
     <MemoryRouter initialEntries={['/']}>
       <App />
@@ -99,28 +117,19 @@ test('navigates to monitoring page', async () => {
 
   const monitoringHeader = await screen.findByRole('heading', { name: /Monitoring/i });
   expect(monitoringHeader).toBeInTheDocument();
-  expect(screen.getByText(/Monitoring page is blank for now/i)).toBeInTheDocument();
 });
 
 test('toggles dark mode', async () => {
-  const { fireEvent, act } = await import('@testing-library/react');
-  const { container } = render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  
+  renderApp();
   const getToggleButton = () => screen.getByRole('button', { name: /Toggle dark mode/i });
-  const appContainer = container.querySelector('#h');
-  
-  // Initially dark mode is on by default state (text is 🌙)
+
   expect(screen.getAllByText('🌙').length).toBeGreaterThan(0);
-  
+
   await act(async () => {
     fireEvent.click(getToggleButton());
   });
   expect(screen.getAllByText('🌞').length).toBeGreaterThan(0);
-  
+
   await act(async () => {
     fireEvent.click(getToggleButton());
   });
