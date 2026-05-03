@@ -1,0 +1,13 @@
+{
+  "name": "maps",
+  "root_path": "/maps/",
+  "link_label": "Live Site",
+  "description": "Auto-discovered project from tommyroar/maps.",
+  "status": "Active",
+  "tags": [
+    "GitHub Pages",
+    "TypeScript"
+  ],
+  "source_url": "https://github.com/tommyroar/maps",
+  "auto_discovered": true
+}

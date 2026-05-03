@@ -14,6 +14,58 @@
     "thumbnail": "/thumbnails/intentcity.png"
   },
   {
+    "name": "is-the-mountain-out",
+    "root_path": "/is-the-mountain-out/",
+    "link_label": "Live Site",
+    "description": "Determine via streaming training if the mountain is out",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "Python"
+    ],
+    "source_url": "https://github.com/tommyroar/is-the-mountain-out",
+    "auto_discovered": true
+  },
+  {
+    "name": "maps",
+    "root_path": "/maps/",
+    "link_label": "Live Site",
+    "description": "Auto-discovered project from tommyroar/maps.",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "TypeScript"
+    ],
+    "source_url": "https://github.com/tommyroar/maps",
+    "auto_discovered": true
+  },
+  {
+    "name": "publisher",
+    "root_path": "/publisher/",
+    "link_label": "Live Site",
+    "description": "Example action workflow",
+    "status": "Archived",
+    "tags": [
+      "GitHub Pages",
+      "HTML"
+    ],
+    "source_url": "https://github.com/tommyroar/publisher",
+    "auto_discovered": true
+  },
+  {
+    "name": "sporty40",
+    "root_path": "/sporty40/",
+    "link_label": "Live Site",
+    "description": "Auto-discovered project from tommyroar/sporty40.",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "JavaScript"
+    ],
+    "source_url": "https://github.com/tommyroar/sporty40",
+    "auto_discovered": true
+  },
+  {
     "name": "Vitamin D",
     "root_path": "/vitamin-d/",
     "link_label": "App Link",
@@ -29,5 +81,31 @@
     ],
     "qr_code": "/thumbnails/vitamin-d_qr.png",
     "thumbnail": "/thumbnails/vitamin-d.png"
+  },
+  {
+    "name": "vitamind",
+    "root_path": "/vitamind/",
+    "link_label": "Live Site",
+    "description": "A single page application showing Vitamin D potential on a map",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "JavaScript"
+    ],
+    "source_url": "https://github.com/tommyroar/vitamind",
+    "auto_discovered": true
+  },
+  {
+    "name": "walksheds",
+    "root_path": "/walksheds/",
+    "link_label": "Live Site",
+    "description": "Points of interest within walking distance of a Seattle light rail station",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "JavaScript"
+    ],
+    "source_url": "https://github.com/tommyroar/walksheds",
+    "auto_discovered": true
   }
 ]
