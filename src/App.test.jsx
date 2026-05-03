@@ -24,10 +24,10 @@ test('renders TopNavigation header', () => {
   expect(headerElements.length).toBeGreaterThan(0);
 });
 
-test('renders the marquee title', () => {
+test('renders the marquee title with legend', () => {
   renderApp();
-  expect(screen.getByText(/TOMMYROAR SYSTEM/i)).toBeInTheDocument();
-  expect(screen.getByText(/SELECT GAME/i)).toBeInTheDocument();
+  expect(screen.getByText(/PROJECT BOX/i)).toBeInTheDocument();
+  expect(screen.getByText(/MOVE/i)).toBeInTheDocument();
 });
 
 test('renders dark mode toggle', () => {
@@ -97,7 +97,7 @@ test('renders pixelated screenshot for projects with thumbnails', () => {
   expect(screenshots.length).toBeGreaterThan(0);
 });
 
-test('renders footer with key hints and game count', () => {
+test('renders key hints and game count in marquee', () => {
   renderApp();
   expect(screen.getByText(/MOVE/i)).toBeInTheDocument();
   const launchHints = screen.getAllByText(/LAUNCH/i);
