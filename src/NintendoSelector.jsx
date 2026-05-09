@@ -214,8 +214,12 @@ const NintendoSelector = ({ projects }) => {
   return (
     <div className="ns-root" ref={containerRef}>
       <div className="ns-marquee">
-        <span className="ns-marquee-title">★ TOMMYROAR SYSTEM ★</span>
-        <span className="ns-marquee-sub">SELECT GAME — USE ARROWS, PRESS ENTER</span>
+        <span className="ns-marquee-title">★ PROJECT BOX ★</span>
+        <div className="ns-marquee-legend">
+          <span><kbd>◄</kbd> <kbd>►</kbd> <kbd>▲</kbd> <kbd>▼</kbd> MOVE</span>
+          <span><kbd>ENTER</kbd> LAUNCH</span>
+          <span>{count} GAME{count === 1 ? '' : 'S'}</span>
+        </div>
       </div>
       <div className="ns-layout">
         <div
@@ -238,11 +242,6 @@ const NintendoSelector = ({ projects }) => {
           )}
         </div>
         <DetailPanel project={current} />
-      </div>
-      <div className="ns-footer">
-        <span><kbd>◄</kbd> <kbd>►</kbd> <kbd>▲</kbd> <kbd>▼</kbd> MOVE</span>
-        <span><kbd>ENTER</kbd> LAUNCH</span>
-        <span>{count} GAME{count === 1 ? '' : 'S'}</span>
       </div>
     </div>
   );

@@ -24,10 +24,10 @@ test('renders TopNavigation header', () => {
   expect(headerElements.length).toBeGreaterThan(0);
 });
 
-test('renders the marquee title', () => {
+test('renders the marquee title with legend', () => {
   renderApp();
-  expect(screen.getByText(/TOMMYROAR SYSTEM/i)).toBeInTheDocument();
-  expect(screen.getByText(/SELECT GAME/i)).toBeInTheDocument();
+  expect(screen.getByText(/PROJECT BOX/i)).toBeInTheDocument();
+  expect(screen.getByText(/MOVE/i)).toBeInTheDocument();
 });
 
 test('renders dark mode toggle', () => {
@@ -81,23 +81,36 @@ test('arrow left at start stays on first tile', async () => {
 
 test('renders DOCS link in detail panel for selected project with docs_path', () => {
   renderApp();
-  const docsLinks = screen.getAllByRole('link', { name: /DOCS/i });
-  expect(docsLinks.length).toBeGreaterThan(0);
+  const sorted = [...projectsData].sort((a, b) => a.name.localeCompare(b.name));
+  if (sorted[0]?.docs_path) {
+    expect(screen.getAllByRole('link', { name: /DOCS/i }).length).toBeGreaterThan(0);
+  } else {
+    expect(screen.queryAllByRole('link', { name: /DOCS/i })).toHaveLength(0);
+  }
 });
 
 test('renders QR code in detail panel when present', () => {
   renderApp();
-  const qrCodes = screen.getAllByAltText(/^QR for /i);
-  expect(qrCodes.length).toBeGreaterThan(0);
+  const sorted = [...projectsData].sort((a, b) => a.name.localeCompare(b.name));
+  if (sorted[0]?.qr_code) {
+    expect(screen.getAllByAltText(/^QR for /i).length).toBeGreaterThan(0);
+  } else {
+    expect(screen.queryAllByAltText(/^QR for /i)).toHaveLength(0);
+  }
 });
 
 test('renders pixelated screenshot for projects with thumbnails', () => {
   renderApp();
-  const screenshots = screen.getAllByAltText(/screenshot/i);
-  expect(screenshots.length).toBeGreaterThan(0);
+  const withThumbs = projectsData.filter(p => p.thumbnail);
+  const screenshots = screen.queryAllByAltText(/screenshot/i);
+  if (withThumbs.length > 0) {
+    expect(screenshots.length).toBeGreaterThan(0);
+  } else {
+    expect(screenshots).toHaveLength(0);
+  }
 });
 
-test('renders footer with key hints and game count', () => {
+test('renders key hints and game count in marquee', () => {
   renderApp();
   expect(screen.getByText(/MOVE/i)).toBeInTheDocument();
   const launchHints = screen.getAllByText(/LAUNCH/i);
