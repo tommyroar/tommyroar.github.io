@@ -43,9 +43,12 @@ async function loadTargets() {
 async function probe(browser, target) {
   const context = await browser.newContext({ ignoreHTTPSErrors: true });
   const page = await context.newPage();
-  let consoleErrors = 0;
-  page.on('pageerror', () => { consoleErrors++; });
-  page.on('console', (msg) => { if (msg.type() === 'error') consoleErrors++; });
+  // Track only uncaught exceptions (pageerror). Plain `console.error` calls
+  // are too noisy on real sites — 3rd-party scripts log errors all the time
+  // without the page being broken. Uncaught JS is the meaningful "the page
+  // is bombing" signal.
+  let pageErrors = 0;
+  page.on('pageerror', () => { pageErrors++; });
 
   const startedAt = Date.now();
   let status = 0;
@@ -69,7 +72,7 @@ async function probe(browser, target) {
     await context.close().catch(() => {});
   }
   const latencyMs = Date.now() - startedAt;
-  const up = status === 200 && selectorPresent && consoleErrors === 0 ? 1 : 0;
+  const up = status === 200 && selectorPresent && pageErrors === 0 ? 1 : 0;
   return {
     project: target.project,
     url: target.url,
@@ -77,7 +80,7 @@ async function probe(browser, target) {
     status_code: status,
     latency_ms: latencyMs,
     selector_present: selectorPresent,
-    console_errors: consoleErrors,
+    page_errors: pageErrors,
     error,
     up,
   };

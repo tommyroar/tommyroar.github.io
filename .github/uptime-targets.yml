@@ -18,17 +18,21 @@ targets:
   - project: judkinsparkforpeople
     url: https://judkinsparkforpeople.org
     network: public
-    expect_selector: header
+    expect_selector: "#root"
 
   - project: judkinsparkforpeople-staging
     url: https://judkinsparkforpeople.org/staging/
     network: public
-    expect_selector: header
+    expect_selector: "#root"
 
-  - project: is-the-mountain-out
-    url: https://is-the-mountain-out.pages.dev
-    network: public
-    expect_selector: main
+  # is-the-mountain-out: README claims https://is-the-mountain-out.pages.dev
+  # but the subdomain is NXDOMAIN as of 2026-05-25. Re-add once the actual
+  # public URL is confirmed (check `wrangler pages deployment list` or
+  # Cloudflare dashboard).
+  # - project: is-the-mountain-out
+  #   url: https://TBD
+  #   network: public
+  #   expect_selector: main
 
   - project: tommyroar-portfolio
     url: https://tommyroar.github.io
