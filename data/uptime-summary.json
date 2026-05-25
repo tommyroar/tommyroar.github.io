@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-05-25T17:57:24.279Z",
+  "projects": [
+    {
+      "project": "judkinsparkforpeople",
+      "url": "https://judkinsparkforpeople.org",
+      "network": "public",
+      "current_up": 0,
+      "current_status": 200,
+      "current_latency_ms": 3282,
+      "current_error": null,
+      "uptime_24h": 0,
+      "uptime_7d": 0,
+      "uptime_30d": 0,
+      "incidents_7d": [
+        {
+          "started_at": "2026-05-25T17:57:24.279Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
+    },
+    {
+      "project": "judkinsparkforpeople-staging",
+      "url": "https://judkinsparkforpeople.org/staging/",
+      "network": "public",
+      "current_up": 0,
+      "current_status": 200,
+      "current_latency_ms": 3386,
+      "current_error": null,
+      "uptime_24h": 0,
+      "uptime_7d": 0,
+      "uptime_30d": 0,
+      "incidents_7d": [
+        {
+          "started_at": "2026-05-25T17:57:24.279Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
+    },
+    {
+      "project": "is-the-mountain-out",
+      "url": "https://is-the-mountain-out.pages.dev",
+      "network": "public",
+      "current_up": 0,
+      "current_status": 0,
+      "current_latency_ms": 34,
+      "current_error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://is-the-mountain-out.pages.dev/",
+      "uptime_24h": 0,
+      "uptime_7d": 0,
+      "uptime_30d": 0,
+      "incidents_7d": [
+        {
+          "started_at": "2026-05-25T17:57:24.279Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
+    },
+    {
+      "project": "tommyroar-portfolio",
+      "url": "https://tommyroar.github.io",
+      "network": "public",
+      "current_up": 1,
+      "current_status": 200,
+      "current_latency_ms": 400,
+      "current_error": null,
+      "uptime_24h": 100,
+      "uptime_7d": 100,
+      "uptime_30d": 100,
+      "incidents_7d": []
+    },
+    {
+      "project": "transit-tracker-web",
+      "url": "https://transit-tracker.eastsideurbanism.org/",
+      "network": "public",
+      "current_up": 1,
+      "current_status": 200,
+      "current_latency_ms": 619,
+      "current_error": null,
+      "uptime_24h": 100,
+      "uptime_7d": 100,
+      "uptime_30d": 100,
+      "incidents_7d": []
+    },
+    {
+      "project": "transit-tracker-docs",
+      "url": "https://eastsideurbanism.github.io/transit-tracker",
+      "network": "public",
+      "current_up": 1,
+      "current_status": 200,
+      "current_latency_ms": 299,
+      "current_error": null,
+      "uptime_24h": 100,
+      "uptime_7d": 100,
+      "uptime_30d": 100,
+      "incidents_7d": []
+    }
+  ],
+  "incidents_7d": [
+    {
+      "project": "judkinsparkforpeople",
+      "started_at": "2026-05-25T17:57:24.279Z",
+      "ended_at": null,
+      "duration_min": 0
+    },
+    {
+      "project": "judkinsparkforpeople-staging",
+      "started_at": "2026-05-25T17:57:24.279Z",
+      "ended_at": null,
+      "duration_min": 0
+    },
+    {
+      "project": "is-the-mountain-out",
+      "started_at": "2026-05-25T17:57:24.279Z",
+      "ended_at": null,
+      "duration_min": 0
+    }
+  ]
+}

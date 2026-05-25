@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-05-25T17:57:24.279Z",
+  "results": [
+    {
+      "project": "judkinsparkforpeople",
+      "url": "https://judkinsparkforpeople.org",
+      "network": "public",
+      "status_code": 200,
+      "latency_ms": 3282,
+      "selector_present": false,
+      "console_errors": 14,
+      "error": null,
+      "up": 0
+    },
+    {
+      "project": "judkinsparkforpeople-staging",
+      "url": "https://judkinsparkforpeople.org/staging/",
+      "network": "public",
+      "status_code": 200,
+      "latency_ms": 3386,
+      "selector_present": false,
+      "console_errors": 24,
+      "error": null,
+      "up": 0
+    },
+    {
+      "project": "is-the-mountain-out",
+      "url": "https://is-the-mountain-out.pages.dev",
+      "network": "public",
+      "status_code": 0,
+      "latency_ms": 34,
+      "selector_present": false,
+      "console_errors": 0,
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://is-the-mountain-out.pages.dev/",
+      "up": 0
+    },
+    {
+      "project": "tommyroar-portfolio",
+      "url": "https://tommyroar.github.io",
+      "network": "public",
+      "status_code": 200,
+      "latency_ms": 400,
+      "selector_present": true,
+      "console_errors": 0,
+      "error": null,
+      "up": 1
+    },
+    {
+      "project": "transit-tracker-web",
+      "url": "https://transit-tracker.eastsideurbanism.org/",
+      "network": "public",
+      "status_code": 200,
+      "latency_ms": 619,
+      "selector_present": true,
+      "console_errors": 0,
+      "error": null,
+      "up": 1
+    },
+    {
+      "project": "transit-tracker-docs",
+      "url": "https://eastsideurbanism.github.io/transit-tracker",
+      "network": "public",
+      "status_code": 200,
+      "latency_ms": 299,
+      "selector_present": true,
+      "console_errors": 0,
+      "error": null,
+      "up": 1
+    }
+  ]
+}
