@@ -1,0 +1,72 @@
+# Targets probed by .github/workflows/uptime-probe.yml every 30 minutes.
+# Each target produces one row in the status page dashboard.
+#
+# Fields:
+#   project          stable slug; used as a tag in the result JSON. Don't rename
+#                    casually — it breaks history continuity for that project.
+#   url              full URL the probe will navigate to.
+#   network          "public" or "tailnet". Tailnet URLs are only reachable from
+#                    the runner after tailscale/github-action joins the tailnet.
+#   expect_selector  CSS selector that must be present after page load. Use a
+#                    selector that proves the page actually rendered (e.g.
+#                    "header", "#app", a known class) rather than just "body"
+#                    when you can. "body" is acceptable for opaque internal
+#                    services where any HTML response means the service is up.
+
+targets:
+  # --- Public ---
+  - project: judkinsparkforpeople
+    url: https://judkinsparkforpeople.org
+    network: public
+    expect_selector: header
+
+  - project: judkinsparkforpeople-staging
+    url: https://judkinsparkforpeople.org/staging/
+    network: public
+    expect_selector: header
+
+  - project: is-the-mountain-out
+    url: https://is-the-mountain-out.pages.dev
+    network: public
+    expect_selector: main
+
+  - project: tommyroar-portfolio
+    url: https://tommyroar.github.io
+    network: public
+    expect_selector: "#root"
+
+  - project: transit-tracker-web
+    url: https://transit-tracker.eastsideurbanism.org/
+    network: public
+    expect_selector: body
+
+  - project: transit-tracker-docs
+    url: https://eastsideurbanism.github.io/transit-tracker
+    network: public
+    expect_selector: body
+
+  # --- Tailnet-only (needs tailscale/github-action join in CI) ---
+  - project: grafana
+    url: https://tommys-mac-mini.tail59a169.ts.net:3000
+    network: tailnet
+    expect_selector: body
+
+  - project: influxdb-ui
+    url: https://tommys-mac-mini.tail59a169.ts.net:8086
+    network: tailnet
+    expect_selector: body
+
+  - project: tempest-dashboard
+    url: https://tommys-mac-mini.tail59a169.ts.net:3000/d/tempest-basic
+    network: tailnet
+    expect_selector: body
+
+  - project: tallest-tree
+    url: https://tommys-mac-mini.tail59a169.ts.net/tallest-trees
+    network: tailnet
+    expect_selector: body
+
+  - project: is-the-mountain-out-classifier
+    url: https://tommys-mac-mini.tail59a169.ts.net/classify/
+    network: tailnet
+    expect_selector: body
