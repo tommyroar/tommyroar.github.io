@@ -74,3 +74,8 @@ targets:
     url: https://tommys-mac-mini.tail59a169.ts.net/classify/
     network: tailnet
     expect_selector: body
+
+  - project: realitycapture-viewer
+    url: https://tommys-mac-mini.tail59a169.ts.net:5190/
+    network: tailnet
+    expect_selector: "#potree_render_area"
