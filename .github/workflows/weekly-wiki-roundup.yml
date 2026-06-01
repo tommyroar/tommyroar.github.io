@@ -1,0 +1,110 @@
+name: weekly-wiki-roundup
+
+# Generates the entertainment-blog-styled "Dev Diary" weekly roundup and
+# publishes it to the GitHub wiki. Runs every Monday morning (and on demand).
+#
+# Requires the repo secret ANTHROPIC_API_KEY. If it's absent the job is skipped,
+# so the workflow never fails for lack of the key.
+#
+# The post's tone, structure, and content rules live in
+# prompts/weekly-wiki-roundup.md (single source of truth). This workflow only
+# supplies CI-specific mechanics: GNU `date` for the week math and HTTPS wiki
+# auth via GITHUB_TOKEN (the macOS `date -j` / SSH clone in the prompt are for
+# local runs).
+
+on:
+  schedule:
+    # Monday 15:00 UTC (~08:00 America/Los_Angeles)
+    - cron: '0 15 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-wiki-roundup
+  cancel-in-progress: false
+
+jobs:
+  roundup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Detect API key
+        id: creds
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: echo "have=${KEY:+1}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout (full history for git log)
+        if: steps.creds.outputs.have == '1'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Compute the week that just ended (previous 7 days). The page is labelled
+      # with that week's ISO year-week, e.g. Dev-Diary-2026-W23.
+      - name: Compute week window
+        if: steps.creds.outputs.have == '1'
+        id: week
+        run: |
+          {
+            echo "since=$(date -u -d '7 days ago' +%Y-%m-%d)"
+            echo "until=$(date -u +%Y-%m-%d)"
+            echo "label=$(date -u -d '7 days ago' +%G-W%V)"
+          } >> "$GITHUB_OUTPUT"
+
+      # Rewrite HTTPS github.com URLs to carry the token so Claude can clone and
+      # push the wiki (a separate repo) with no extra setup.
+      - name: Configure git auth for wiki
+        if: steps.creds.outputs.have == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          git config --global user.name  "dev-diary-bot"
+          git config --global user.email "dev-diary-bot@users.noreply.github.com"
+
+      - name: Generate and publish Dev Diary
+        if: steps.creds.outputs.have == '1'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: "--allowedTools Bash,Read,Write,Edit --max-turns 50"
+          prompt: |
+            Generate this week's "Dev Diary" weekly roundup and publish it to the
+            GitHub wiki. Read prompts/weekly-wiki-roundup.md FIRST — it is the
+            single source of truth for the entertainment-blog voice, the post
+            structure (breakout star, scandal, cut cameo, finale teaser, ratings,
+            by-the-numbers table, "Next Week On…"), and the noise-filtering rules
+            (count the automated `uptime: <timestamp> [skip ci]` commits for a bot
+            shout-out, never list them; the real stories are feat/fix/reverts/new
+            workflows/new targets and other human-authored commits).
+
+            Use these CI-specific mechanics instead of the local ones in that file
+            (this runner is Linux, and wiki auth is already configured for HTTPS):
+
+            1. Week being summarized: ISO label ${{ steps.week.outputs.label }},
+               commit window ${{ steps.week.outputs.since }} (inclusive) to
+               ${{ steps.week.outputs.until }} (exclusive).
+            2. Gather material:
+               git log --since="${{ steps.week.outputs.since }}" --until="${{ steps.week.outputs.until }}" --date=short --pretty=format:"%h|%ad|%s%n%b"
+               Run `git show --stat <hash>` on the substantive commits for real
+               details. Every claim must be grounded in actual commits.
+            3. If there are NO substantive (non-bot) commits in the window, do NOT
+               publish a post — just print "No substantive commits this week;
+               skipping." and stop.
+            4. Publish to the wiki (separate repo, default branch master, auth
+               already set up — clone over HTTPS):
+                 git clone https://github.com/tommyroar/tommyroar.github.io.wiki.git /tmp/wiki
+               - Write the post to /tmp/wiki/Dev-Diary-${{ steps.week.outputs.label }}.md
+               - Add a bullet (newest at top) under "Dev Diary — Weekly Roundups"
+                 in /tmp/wiki/Home.md linking
+                 [Dev Diary ${{ steps.week.outputs.label }}](Dev-Diary-${{ steps.week.outputs.label }})
+                 with a one-line teaser. If that section doesn't exist, create it.
+               - Commit and push:
+                 git -C /tmp/wiki add -A
+                 git -C /tmp/wiki commit -m "Dev Diary ${{ steps.week.outputs.label }}"
+                 git -C /tmp/wiki push origin master
+            5. Finish by printing the published URL:
+               https://github.com/tommyroar/tommyroar.github.io/wiki/Dev-Diary-${{ steps.week.outputs.label }}
