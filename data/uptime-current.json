@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-10T09:06:17.575Z",
+  "generated_at": "2026-06-10T12:45:10.316Z",
   "results": [
     {
       "project": "judkinsparkforpeople",
       "url": "https://judkinsparkforpeople.org",
       "network": "public",
-      "status_code": 200,
-      "latency_ms": 497,
-      "selector_present": true,
+      "status_code": 503,
+      "latency_ms": 3347,
+      "selector_present": false,
       "page_errors": 0,
       "error": null,
-      "up": 1
+      "up": 0
     },
     {
       "project": "judkinsparkforpeople-staging",
@@ -28,7 +28,7 @@
       "url": "https://tommyroar.github.io",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 309,
+      "latency_ms": 306,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -39,7 +39,7 @@
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 400,
+      "latency_ms": 547,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -50,7 +50,7 @@
       "url": "https://eastsideurbanism.github.io/transit-tracker",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 295,
+      "latency_ms": 312,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
