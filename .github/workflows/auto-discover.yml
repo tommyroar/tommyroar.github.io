@@ -9,7 +9,7 @@ on:
       owner:
         description: GitHub user/org whose Pages-deployed repos should be discovered
         required: false
-        default: tommyroar
+        default: robogeosociety
 
 permissions:
   contents: write
@@ -36,7 +36,7 @@ jobs:
       - name: Discover GitHub Pages deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISCOVERY_OWNER: ${{ github.event.inputs.owner || 'tommyroar' }}
+          DISCOVERY_OWNER: ${{ github.event.inputs.owner || 'robogeosociety' }}
         run: uv run discover
 
       - name: Bundle apps data
