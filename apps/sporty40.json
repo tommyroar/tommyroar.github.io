@@ -2,12 +2,12 @@
   "name": "sporty40",
   "root_path": "/sporty40/",
   "link_label": "Live Site",
-  "description": "Auto-discovered project from tommyroar/sporty40.",
+  "description": "Auto-discovered project from robogeosociety/sporty40.",
   "status": "Active",
   "tags": [
     "GitHub Pages",
     "JavaScript"
   ],
-  "source_url": "https://github.com/tommyroar/sporty40",
+  "source_url": "https://github.com/robogeosociety/sporty40",
   "auto_discovered": true
 }

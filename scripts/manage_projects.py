@@ -15,7 +15,7 @@ console = Console()
 APPS_DIR = Path("apps")
 PUBLIC_THUMBNAILS_DIR = Path("public/thumbnails")
 OUTPUT_FILE = Path("src/data/projects.json")
-BASE_URL = "https://tommyroar.github.io"
+BASE_URL = "https://robogeosociety.github.io"
 
 if not PUBLIC_THUMBNAILS_DIR.exists():
     PUBLIC_THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)

@@ -16,7 +16,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-OWNER = os.environ.get("DISCOVERY_OWNER", "tommyroar")
+OWNER = os.environ.get("DISCOVERY_OWNER", "robogeosociety")
 APPS_DIR = Path("apps")
 GITHUB_API = "https://api.github.com"
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")

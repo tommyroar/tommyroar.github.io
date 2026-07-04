@@ -9,33 +9,33 @@
       "GitHub Pages",
       "Python"
     ],
-    "source_url": "https://github.com/tommyroar/is-the-mountain-out",
+    "source_url": "https://github.com/robogeosociety/is-the-mountain-out",
     "auto_discovered": true
   },
   {
     "name": "maps",
     "root_path": "/maps/",
     "link_label": "Live Site",
-    "description": "Auto-discovered project from tommyroar/maps.",
+    "description": "Auto-discovered project from robogeosociety/maps.",
     "status": "Active",
     "tags": [
       "GitHub Pages",
       "TypeScript"
     ],
-    "source_url": "https://github.com/tommyroar/maps",
+    "source_url": "https://github.com/robogeosociety/maps",
     "auto_discovered": true
   },
   {
     "name": "sporty40",
     "root_path": "/sporty40/",
     "link_label": "Live Site",
-    "description": "Auto-discovered project from tommyroar/sporty40.",
+    "description": "Auto-discovered project from robogeosociety/sporty40.",
     "status": "Active",
     "tags": [
       "GitHub Pages",
       "JavaScript"
     ],
-    "source_url": "https://github.com/tommyroar/sporty40",
+    "source_url": "https://github.com/robogeosociety/sporty40",
     "auto_discovered": true
   },
   {
@@ -48,7 +48,7 @@
       "GitHub Pages",
       "JavaScript"
     ],
-    "source_url": "https://github.com/tommyroar/vitamind",
+    "source_url": "https://github.com/robogeosociety/vitamind",
     "auto_discovered": true
   },
   {
@@ -61,7 +61,7 @@
       "GitHub Pages",
       "JavaScript"
     ],
-    "source_url": "https://github.com/tommyroar/walksheds",
+    "source_url": "https://github.com/robogeosociety/walksheds",
     "auto_discovered": true
   }
 ]
