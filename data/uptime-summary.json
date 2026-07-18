@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T17:36:50.218Z",
+  "generated_at": "2026-07-18T19:15:41.285Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 685,
+      "current_latency_ms": 516,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -18,14 +18,20 @@
       "project": "judkinsparkforpeople-staging",
       "url": "https://judkinsparkforpeople.org/staging/",
       "network": "public",
-      "current_up": 1,
-      "current_status": 200,
-      "current_latency_ms": 579,
-      "current_error": null,
-      "uptime_24h": 100,
-      "uptime_7d": 100,
-      "uptime_30d": 100,
-      "incidents_7d": []
+      "current_up": 0,
+      "current_status": 0,
+      "current_latency_ms": 15008,
+      "current_error": "page.goto: Timeout 15000ms exceeded.",
+      "uptime_24h": 93.3,
+      "uptime_7d": 98.9,
+      "uptime_30d": 99.7,
+      "incidents_7d": [
+        {
+          "started_at": "2026-07-18T19:15:41.285Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
     },
     {
       "project": "tommyroar-portfolio",
@@ -33,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 3632,
+      "current_latency_ms": 12784,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -44,18 +50,23 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "current_up": 1,
-      "current_status": 200,
-      "current_latency_ms": 5375,
-      "current_error": null,
-      "uptime_24h": 93.3,
-      "uptime_7d": 98.9,
-      "uptime_30d": 99.7,
+      "current_up": 0,
+      "current_status": 0,
+      "current_latency_ms": 15013,
+      "current_error": "page.goto: Timeout 15000ms exceeded.",
+      "uptime_24h": 86.7,
+      "uptime_7d": 97.8,
+      "uptime_30d": 99.3,
       "incidents_7d": [
         {
           "started_at": "2026-07-18T16:29:42.201Z",
           "ended_at": "2026-07-18T17:36:50.218Z",
           "duration_min": 67
+        },
+        {
+          "started_at": "2026-07-18T19:15:41.285Z",
+          "ended_at": null,
+          "duration_min": 0
         }
       ]
     },
@@ -63,22 +74,46 @@
       "project": "transit-tracker-docs",
       "url": "https://eastsideurbanism.github.io/transit-tracker",
       "network": "public",
-      "current_up": 1,
-      "current_status": 200,
-      "current_latency_ms": 513,
-      "current_error": null,
-      "uptime_24h": 100,
-      "uptime_7d": 100,
-      "uptime_30d": 100,
-      "incidents_7d": []
+      "current_up": 0,
+      "current_status": 0,
+      "current_latency_ms": 15021,
+      "current_error": "page.goto: Timeout 15000ms exceeded.",
+      "uptime_24h": 93.3,
+      "uptime_7d": 98.9,
+      "uptime_30d": 99.7,
+      "incidents_7d": [
+        {
+          "started_at": "2026-07-18T19:15:41.285Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
     }
   ],
   "incidents_7d": [
+    {
+      "project": "judkinsparkforpeople-staging",
+      "started_at": "2026-07-18T19:15:41.285Z",
+      "ended_at": null,
+      "duration_min": 0
+    },
     {
       "project": "transit-tracker-web",
       "started_at": "2026-07-18T16:29:42.201Z",
       "ended_at": "2026-07-18T17:36:50.218Z",
       "duration_min": 67
+    },
+    {
+      "project": "transit-tracker-web",
+      "started_at": "2026-07-18T19:15:41.285Z",
+      "ended_at": null,
+      "duration_min": 0
+    },
+    {
+      "project": "transit-tracker-docs",
+      "started_at": "2026-07-18T19:15:41.285Z",
+      "ended_at": null,
+      "duration_min": 0
     }
   ]
 }

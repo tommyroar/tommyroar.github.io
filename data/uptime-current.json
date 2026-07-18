@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-18T17:36:50.218Z",
+  "generated_at": "2026-07-18T19:15:41.285Z",
   "results": [
     {
       "project": "judkinsparkforpeople",
       "url": "https://judkinsparkforpeople.org",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 685,
+      "latency_ms": 516,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -16,19 +16,19 @@
       "project": "judkinsparkforpeople-staging",
       "url": "https://judkinsparkforpeople.org/staging/",
       "network": "public",
-      "status_code": 200,
-      "latency_ms": 579,
-      "selector_present": true,
+      "status_code": 0,
+      "latency_ms": 15008,
+      "selector_present": false,
       "page_errors": 0,
-      "error": null,
-      "up": 1
+      "error": "page.goto: Timeout 15000ms exceeded.",
+      "up": 0
     },
     {
       "project": "tommyroar-portfolio",
       "url": "https://tommyroar.github.io",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 3632,
+      "latency_ms": 12784,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -38,23 +38,23 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "status_code": 200,
-      "latency_ms": 5375,
-      "selector_present": true,
+      "status_code": 0,
+      "latency_ms": 15013,
+      "selector_present": false,
       "page_errors": 0,
-      "error": null,
-      "up": 1
+      "error": "page.goto: Timeout 15000ms exceeded.",
+      "up": 0
     },
     {
       "project": "transit-tracker-docs",
       "url": "https://eastsideurbanism.github.io/transit-tracker",
       "network": "public",
-      "status_code": 200,
-      "latency_ms": 513,
-      "selector_present": true,
+      "status_code": 0,
+      "latency_ms": 15021,
+      "selector_present": false,
       "page_errors": 0,
-      "error": null,
-      "up": 1
+      "error": "page.goto: Timeout 15000ms exceeded.",
+      "up": 0
     }
   ]
 }
