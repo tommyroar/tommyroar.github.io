@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T20:23:00.322Z",
+  "generated_at": "2026-07-18T21:27:21.677Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 713,
+      "current_latency_ms": 481,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -20,7 +20,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 9266,
+      "current_latency_ms": 392,
       "current_error": null,
       "uptime_24h": 93.3,
       "uptime_7d": 98.9,
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 8600,
+      "current_latency_ms": 477,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -52,10 +52,10 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 12598,
+      "current_latency_ms": 895,
       "current_error": null,
       "uptime_24h": 86.7,
-      "uptime_7d": 97.8,
+      "uptime_7d": 97.7,
       "uptime_30d": 99.3,
       "incidents_7d": [
         {
@@ -76,7 +76,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 324,
+      "current_latency_ms": 594,
       "current_error": null,
       "uptime_24h": 93.3,
       "uptime_7d": 98.9,
