@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-18T19:15:41.285Z",
+  "generated_at": "2026-07-18T20:23:00.322Z",
   "results": [
     {
       "project": "judkinsparkforpeople",
       "url": "https://judkinsparkforpeople.org",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 516,
+      "latency_ms": 713,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -16,19 +16,19 @@
       "project": "judkinsparkforpeople-staging",
       "url": "https://judkinsparkforpeople.org/staging/",
       "network": "public",
-      "status_code": 0,
-      "latency_ms": 15008,
-      "selector_present": false,
+      "status_code": 200,
+      "latency_ms": 9266,
+      "selector_present": true,
       "page_errors": 0,
-      "error": "page.goto: Timeout 15000ms exceeded.",
-      "up": 0
+      "error": null,
+      "up": 1
     },
     {
       "project": "tommyroar-portfolio",
       "url": "https://tommyroar.github.io",
       "network": "public",
       "status_code": 200,
-      "latency_ms": 12784,
+      "latency_ms": 8600,
       "selector_present": true,
       "page_errors": 0,
       "error": null,
@@ -38,23 +38,23 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "status_code": 0,
-      "latency_ms": 15013,
-      "selector_present": false,
+      "status_code": 200,
+      "latency_ms": 12598,
+      "selector_present": true,
       "page_errors": 0,
-      "error": "page.goto: Timeout 15000ms exceeded.",
-      "up": 0
+      "error": null,
+      "up": 1
     },
     {
       "project": "transit-tracker-docs",
       "url": "https://eastsideurbanism.github.io/transit-tracker",
       "network": "public",
-      "status_code": 0,
-      "latency_ms": 15021,
-      "selector_present": false,
+      "status_code": 200,
+      "latency_ms": 324,
+      "selector_present": true,
       "page_errors": 0,
-      "error": "page.goto: Timeout 15000ms exceeded.",
-      "up": 0
+      "error": null,
+      "up": 1
     }
   ]
 }
