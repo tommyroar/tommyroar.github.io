@@ -1,0 +1,13 @@
+{
+  "name": "publisher",
+  "root_path": "/publisher/",
+  "link_label": "Live Site",
+  "description": "Example action workflow",
+  "status": "Archived",
+  "tags": [
+    "GitHub Pages",
+    "HTML"
+  ],
+  "source_url": "https://github.com/robogeosociety/publisher",
+  "auto_discovered": true
+}
