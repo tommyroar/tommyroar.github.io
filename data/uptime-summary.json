@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T17:27:08.123Z",
+  "generated_at": "2026-08-07T18:25:53.905Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,9 +7,9 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 512,
+      "current_latency_ms": 507,
       "current_error": null,
-      "uptime_24h": 91.7,
+      "uptime_24h": 92.3,
       "uptime_7d": 98.7,
       "uptime_30d": 99.7,
       "incidents_7d": [
@@ -26,7 +26,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 557,
+      "current_latency_ms": 480,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 531,
+      "current_latency_ms": 540,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -50,18 +50,18 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "current_up": 0,
+      "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 590,
+      "current_latency_ms": 683,
       "current_error": null,
-      "uptime_24h": 91.7,
+      "uptime_24h": 92.3,
       "uptime_7d": 98.7,
       "uptime_30d": 99.1,
       "incidents_7d": [
         {
           "started_at": "2026-08-07T17:27:08.123Z",
-          "ended_at": null,
-          "duration_min": 0
+          "ended_at": "2026-08-07T18:25:53.905Z",
+          "duration_min": 59
         }
       ]
     },
@@ -71,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 557,
+      "current_latency_ms": 496,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -89,8 +89,8 @@
     {
       "project": "transit-tracker-web",
       "started_at": "2026-08-07T17:27:08.123Z",
-      "ended_at": null,
-      "duration_min": 0
+      "ended_at": "2026-08-07T18:25:53.905Z",
+      "duration_min": 59
     }
   ]
 }
