@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-07T07:36:11.196Z",
+  "generated_at": "2026-08-07T09:08:47.620Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
       "url": "https://judkinsparkforpeople.org",
       "network": "public",
-      "current_up": 0,
-      "current_status": 0,
-      "current_latency_ms": 15014,
-      "current_error": "page.goto: Timeout 15000ms exceeded.",
-      "uptime_24h": 85.7,
+      "current_up": 1,
+      "current_status": 200,
+      "current_latency_ms": 423,
+      "current_error": null,
+      "uptime_24h": 87.5,
       "uptime_7d": 98.6,
       "uptime_30d": 99.7,
       "incidents_7d": [
         {
           "started_at": "2026-08-07T07:36:11.196Z",
-          "ended_at": null,
-          "duration_min": 0
+          "ended_at": "2026-08-07T09:08:47.620Z",
+          "duration_min": 93
         }
       ]
     },
@@ -26,7 +26,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 519,
+      "current_latency_ms": 295,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 843,
+      "current_latency_ms": 377,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -52,7 +52,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 772,
+      "current_latency_ms": 1419,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -65,7 +65,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 493,
+      "current_latency_ms": 1291,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -77,8 +77,8 @@
     {
       "project": "judkinsparkforpeople",
       "started_at": "2026-08-07T07:36:11.196Z",
-      "ended_at": null,
-      "duration_min": 0
+      "ended_at": "2026-08-07T09:08:47.620Z",
+      "duration_min": 93
     }
   ]
 }
