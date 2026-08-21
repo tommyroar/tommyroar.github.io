@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T10:59:45.154Z",
+  "generated_at": "2026-08-21T11:36:12.494Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 360,
+      "current_latency_ms": 569,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 99.4,
@@ -26,7 +26,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 362,
+      "current_latency_ms": 413,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 507,
+      "current_latency_ms": 570,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -50,14 +50,20 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "current_up": 1,
+      "current_up": 0,
       "current_status": 200,
-      "current_latency_ms": 425,
+      "current_latency_ms": 704,
       "current_error": null,
-      "uptime_24h": 100,
-      "uptime_7d": 100,
-      "uptime_30d": 99.8,
-      "incidents_7d": []
+      "uptime_24h": 95.8,
+      "uptime_7d": 99.4,
+      "uptime_30d": 99.6,
+      "incidents_7d": [
+        {
+          "started_at": "2026-08-21T11:36:12.494Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
     },
     {
       "project": "transit-tracker-docs",
@@ -65,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 324,
+      "current_latency_ms": 698,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -79,6 +85,12 @@
       "started_at": "2026-08-18T06:58:07.382Z",
       "ended_at": "2026-08-18T07:47:49.591Z",
       "duration_min": 50
+    },
+    {
+      "project": "transit-tracker-web",
+      "started_at": "2026-08-21T11:36:12.494Z",
+      "ended_at": null,
+      "duration_min": 0
     }
   ]
 }
