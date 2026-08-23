@@ -1,8 +1,3 @@
-{"ts":"2026-07-24T15:15:23.420Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":863}
-{"ts":"2026-07-24T15:15:23.420Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":696}
-{"ts":"2026-07-24T15:15:23.420Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":637}
-{"ts":"2026-07-24T15:15:23.420Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":835}
-{"ts":"2026-07-24T15:15:23.420Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":894}
 {"ts":"2026-07-24T17:08:04.014Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":355}
 {"ts":"2026-07-24T17:08:04.014Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":334}
 {"ts":"2026-07-24T17:08:04.014Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":352}
@@ -2553,3 +2548,8 @@
 {"ts":"2026-08-23T14:55:46.606Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":500}
 {"ts":"2026-08-23T14:55:46.606Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":583}
 {"ts":"2026-08-23T14:55:46.606Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":737}
+{"ts":"2026-08-23T15:30:06.370Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":464}
+{"ts":"2026-08-23T15:30:06.370Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":278}
+{"ts":"2026-08-23T15:30:06.370Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":304}
+{"ts":"2026-08-23T15:30:06.370Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":477}
+{"ts":"2026-08-23T15:30:06.370Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":417}
