@@ -2698,3 +2698,8 @@
 {"ts":"2026-08-25T20:37:42.702Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":323}
 {"ts":"2026-08-25T20:37:42.702Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":666}
 {"ts":"2026-08-25T20:37:42.702Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":446}
+{"ts":"2026-08-25T21:36:08.769Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":812}
+{"ts":"2026-08-25T21:36:08.769Z","project":"judkinsparkforpeople-staging","up":0,"status_code":0,"latency_ms":15015}
+{"ts":"2026-08-25T21:36:08.769Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":416}
+{"ts":"2026-08-25T21:36:08.769Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":2611}
+{"ts":"2026-08-25T21:36:08.769Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":633}

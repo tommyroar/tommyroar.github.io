@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T20:37:42.702Z",
+  "generated_at": "2026-08-25T21:36:08.769Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 394,
+      "current_latency_ms": 812,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -18,14 +18,20 @@
       "project": "judkinsparkforpeople-staging",
       "url": "https://judkinsparkforpeople.org/staging/",
       "network": "public",
-      "current_up": 1,
-      "current_status": 200,
-      "current_latency_ms": 348,
-      "current_error": null,
-      "uptime_24h": 100,
-      "uptime_7d": 100,
-      "uptime_30d": 100,
-      "incidents_7d": []
+      "current_up": 0,
+      "current_status": 0,
+      "current_latency_ms": 15015,
+      "current_error": "page.goto: Timeout 15000ms exceeded.",
+      "uptime_24h": 96,
+      "uptime_7d": 99.4,
+      "uptime_30d": 99.8,
+      "incidents_7d": [
+        {
+          "started_at": "2026-08-25T21:36:08.769Z",
+          "ended_at": null,
+          "duration_min": 0
+        }
+      ]
     },
     {
       "project": "tommyroar-portfolio",
@@ -33,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 323,
+      "current_latency_ms": 416,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -46,7 +52,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 666,
+      "current_latency_ms": 2611,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 99.4,
@@ -65,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 446,
+      "current_latency_ms": 633,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -74,6 +80,12 @@
     }
   ],
   "incidents_7d": [
+    {
+      "project": "judkinsparkforpeople-staging",
+      "started_at": "2026-08-25T21:36:08.769Z",
+      "ended_at": null,
+      "duration_min": 0
+    },
     {
       "project": "transit-tracker-web",
       "started_at": "2026-08-21T11:36:12.494Z",
