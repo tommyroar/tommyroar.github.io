@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:36:08.769Z",
+  "generated_at": "2026-08-25T22:36:04.012Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 812,
+      "current_latency_ms": 839,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -18,18 +18,18 @@
       "project": "judkinsparkforpeople-staging",
       "url": "https://judkinsparkforpeople.org/staging/",
       "network": "public",
-      "current_up": 0,
-      "current_status": 0,
-      "current_latency_ms": 15015,
-      "current_error": "page.goto: Timeout 15000ms exceeded.",
-      "uptime_24h": 96,
+      "current_up": 1,
+      "current_status": 200,
+      "current_latency_ms": 966,
+      "current_error": null,
+      "uptime_24h": 95.8,
       "uptime_7d": 99.4,
       "uptime_30d": 99.8,
       "incidents_7d": [
         {
           "started_at": "2026-08-25T21:36:08.769Z",
-          "ended_at": null,
-          "duration_min": 0
+          "ended_at": "2026-08-25T22:36:04.012Z",
+          "duration_min": 60
         }
       ]
     },
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 416,
+      "current_latency_ms": 701,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -52,7 +52,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 2611,
+      "current_latency_ms": 1299,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 99.4,
@@ -71,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 633,
+      "current_latency_ms": 2039,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -83,8 +83,8 @@
     {
       "project": "judkinsparkforpeople-staging",
       "started_at": "2026-08-25T21:36:08.769Z",
-      "ended_at": null,
-      "duration_min": 0
+      "ended_at": "2026-08-25T22:36:04.012Z",
+      "duration_min": 60
     },
     {
       "project": "transit-tracker-web",
