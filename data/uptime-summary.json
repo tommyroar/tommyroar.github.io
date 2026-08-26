@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T13:11:04.623Z",
+  "generated_at": "2026-08-26T14:20:42.729Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 481,
+      "current_latency_ms": 688,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -20,9 +20,9 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 432,
+      "current_latency_ms": 829,
       "current_error": null,
-      "uptime_24h": 95.7,
+      "uptime_24h": 95.8,
       "uptime_7d": 99.4,
       "uptime_30d": 99.8,
       "incidents_7d": [
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 499,
+      "current_latency_ms": 535,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -50,11 +50,11 @@
       "project": "transit-tracker-web",
       "url": "https://transit-tracker.eastsideurbanism.org/",
       "network": "public",
-      "current_up": 0,
+      "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 562,
+      "current_latency_ms": 738,
       "current_error": null,
-      "uptime_24h": 95.7,
+      "uptime_24h": 95.8,
       "uptime_7d": 98.9,
       "uptime_30d": 99.5,
       "incidents_7d": [
@@ -65,8 +65,8 @@
         },
         {
           "started_at": "2026-08-26T13:11:04.623Z",
-          "ended_at": null,
-          "duration_min": 0
+          "ended_at": "2026-08-26T14:20:42.729Z",
+          "duration_min": 70
         }
       ]
     },
@@ -76,7 +76,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 446,
+      "current_latency_ms": 576,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -100,8 +100,8 @@
     {
       "project": "transit-tracker-web",
       "started_at": "2026-08-26T13:11:04.623Z",
-      "ended_at": null,
-      "duration_min": 0
+      "ended_at": "2026-08-26T14:20:42.729Z",
+      "duration_min": 70
     }
   ]
 }
