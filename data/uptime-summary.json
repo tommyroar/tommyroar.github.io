@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T05:35:42.771Z",
+  "generated_at": "2026-08-28T18:31:49.370Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 589,
+      "current_latency_ms": 581,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -20,7 +20,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 415,
+      "current_latency_ms": 541,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 99.3,
@@ -39,7 +39,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 509,
+      "current_latency_ms": 448,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -52,17 +52,12 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 667,
+      "current_latency_ms": 566,
       "current_error": null,
       "uptime_24h": 100,
-      "uptime_7d": 98.6,
+      "uptime_7d": 99.3,
       "uptime_30d": 99.4,
       "incidents_7d": [
-        {
-          "started_at": "2026-08-21T11:36:12.494Z",
-          "ended_at": "2026-08-21T13:02:30.584Z",
-          "duration_min": 86
-        },
         {
           "started_at": "2026-08-26T13:11:04.623Z",
           "ended_at": "2026-08-26T14:20:42.729Z",
@@ -76,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 492,
+      "current_latency_ms": 479,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -90,12 +85,6 @@
       "started_at": "2026-08-25T21:36:08.769Z",
       "ended_at": "2026-08-25T22:36:04.012Z",
       "duration_min": 60
-    },
-    {
-      "project": "transit-tracker-web",
-      "started_at": "2026-08-21T11:36:12.494Z",
-      "ended_at": "2026-08-21T13:02:30.584Z",
-      "duration_min": 86
     },
     {
       "project": "transit-tracker-web",
