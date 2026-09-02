@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T08:58:37.578Z",
+  "generated_at": "2026-09-02T13:33:32.385Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,7 +7,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 343,
+      "current_latency_ms": 899,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -20,7 +20,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 274,
+      "current_latency_ms": 677,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -33,7 +33,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 343,
+      "current_latency_ms": 610,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -46,18 +46,12 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 604,
+      "current_latency_ms": 875,
       "current_error": null,
       "uptime_24h": 100,
-      "uptime_7d": 97.4,
+      "uptime_7d": 100,
       "uptime_30d": 99.4,
-      "incidents_7d": [
-        {
-          "started_at": "2026-08-26T13:11:04.623Z",
-          "ended_at": "2026-08-26T14:20:42.729Z",
-          "duration_min": 70
-        }
-      ]
+      "incidents_7d": []
     },
     {
       "project": "transit-tracker-docs",
@@ -65,7 +59,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 443,
+      "current_latency_ms": 358,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -73,12 +67,5 @@
       "incidents_7d": []
     }
   ],
-  "incidents_7d": [
-    {
-      "project": "transit-tracker-web",
-      "started_at": "2026-08-26T13:11:04.623Z",
-      "ended_at": "2026-08-26T14:20:42.729Z",
-      "duration_min": 70
-    }
-  ]
+  "incidents_7d": []
 }
