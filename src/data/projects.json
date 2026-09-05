@@ -1,5 +1,31 @@
 [
   {
+    "name": "Bathymetryst",
+    "root_path": "/Bathymetryst/",
+    "link_label": "Live Site",
+    "description": "Explore ancient shorelines",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "Python"
+    ],
+    "source_url": "https://github.com/robogeosociety/Bathymetryst",
+    "auto_discovered": true
+  },
+  {
+    "name": "intentcity",
+    "root_path": "/intentcity/",
+    "link_label": "Live Site",
+    "description": "Reminders to reserve campsites",
+    "status": "Active",
+    "tags": [
+      "GitHub Pages",
+      "JavaScript"
+    ],
+    "source_url": "https://github.com/robogeosociety/intentcity",
+    "auto_discovered": true
+  },
+  {
     "name": "is-the-mountain-out",
     "root_path": "/is-the-mountain-out/",
     "link_label": "Live Site",
@@ -23,6 +49,19 @@
       "TypeScript"
     ],
     "source_url": "https://github.com/robogeosociety/maps",
+    "auto_discovered": true
+  },
+  {
+    "name": "publisher",
+    "root_path": "/publisher/",
+    "link_label": "Live Site",
+    "description": "Example action workflow",
+    "status": "Archived",
+    "tags": [
+      "GitHub Pages",
+      "HTML"
+    ],
+    "source_url": "https://github.com/robogeosociety/publisher",
     "auto_discovered": true
   },
   {
