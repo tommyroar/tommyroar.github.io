@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T20:24:34.361Z",
+  "generated_at": "2026-11-11T00:50:11.162Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -11,12 +11,12 @@
       "current_error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://judkinsparkforpeople.org/",
       "uptime_24h": 0,
       "uptime_7d": 0,
-      "uptime_30d": 63.3,
+      "uptime_30d": 62.6,
       "incidents_7d": [
         {
-          "started_at": "2026-11-03T23:36:24.897Z",
+          "started_at": "2026-11-04T05:58:31.838Z",
           "ended_at": null,
-          "duration_min": 9888
+          "duration_min": 9772
         }
       ]
     },
@@ -26,16 +26,16 @@
       "network": "public",
       "current_up": 0,
       "current_status": 0,
-      "current_latency_ms": 155,
+      "current_latency_ms": 165,
       "current_error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://judkinsparkforpeople.org/staging/",
       "uptime_24h": 0,
       "uptime_7d": 0,
-      "uptime_30d": 63.3,
+      "uptime_30d": 62.6,
       "incidents_7d": [
         {
-          "started_at": "2026-11-03T23:36:24.897Z",
+          "started_at": "2026-11-04T05:58:31.838Z",
           "ended_at": null,
-          "duration_min": 9888
+          "duration_min": 9772
         }
       ]
     },
@@ -58,7 +58,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 443,
+      "current_latency_ms": 978,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -71,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 356,
+      "current_latency_ms": 420,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -82,15 +82,15 @@
   "incidents_7d": [
     {
       "project": "judkinsparkforpeople",
-      "started_at": "2026-11-03T23:36:24.897Z",
+      "started_at": "2026-11-04T05:58:31.838Z",
       "ended_at": null,
-      "duration_min": 9888
+      "duration_min": 9772
     },
     {
       "project": "judkinsparkforpeople-staging",
-      "started_at": "2026-11-03T23:36:24.897Z",
+      "started_at": "2026-11-04T05:58:31.838Z",
       "ended_at": null,
-      "duration_min": 9888
+      "duration_min": 9772
     }
   ]
 }
