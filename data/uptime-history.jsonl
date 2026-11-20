@@ -1,13 +1,3 @@
-{"ts":"2026-10-21T19:31:07.479Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":1212}
-{"ts":"2026-10-21T19:31:07.479Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":1224}
-{"ts":"2026-10-21T19:31:07.479Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":457}
-{"ts":"2026-10-21T19:31:07.479Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":483}
-{"ts":"2026-10-21T19:31:07.479Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":662}
-{"ts":"2026-10-21T23:09:53.267Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":553}
-{"ts":"2026-10-21T23:09:53.267Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":400}
-{"ts":"2026-10-21T23:09:53.267Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":342}
-{"ts":"2026-10-21T23:09:53.267Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":727}
-{"ts":"2026-10-21T23:09:53.267Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":441}
 {"ts":"2026-10-22T01:44:37.763Z","project":"judkinsparkforpeople","up":1,"status_code":200,"latency_ms":998}
 {"ts":"2026-10-22T01:44:37.763Z","project":"judkinsparkforpeople-staging","up":1,"status_code":200,"latency_ms":431}
 {"ts":"2026-10-22T01:44:37.763Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":452}
@@ -593,3 +583,8 @@
 {"ts":"2026-11-20T17:58:09.559Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":418}
 {"ts":"2026-11-20T17:58:09.559Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":1381}
 {"ts":"2026-11-20T17:58:09.559Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":1285}
+{"ts":"2026-11-20T23:56:27.488Z","project":"judkinsparkforpeople","up":0,"status_code":0,"latency_ms":82}
+{"ts":"2026-11-20T23:56:27.488Z","project":"judkinsparkforpeople-staging","up":0,"status_code":0,"latency_ms":41}
+{"ts":"2026-11-20T23:56:27.488Z","project":"tommyroar-portfolio","up":1,"status_code":200,"latency_ms":784}
+{"ts":"2026-11-20T23:56:27.488Z","project":"transit-tracker-web","up":1,"status_code":200,"latency_ms":1138}
+{"ts":"2026-11-20T23:56:27.488Z","project":"transit-tracker-docs","up":1,"status_code":200,"latency_ms":809}
