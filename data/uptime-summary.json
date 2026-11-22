@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:44:13.091Z",
+  "generated_at": "2026-11-22T23:30:29.934Z",
   "projects": [
     {
       "project": "judkinsparkforpeople",
@@ -7,16 +7,16 @@
       "network": "public",
       "current_up": 0,
       "current_status": 0,
-      "current_latency_ms": 129,
+      "current_latency_ms": 85,
       "current_error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://judkinsparkforpeople.org/",
       "uptime_24h": 0,
       "uptime_7d": 0,
-      "uptime_30d": 22.2,
+      "uptime_30d": 20.7,
       "incidents_7d": [
         {
-          "started_at": "2026-11-15T20:58:18.011Z",
+          "started_at": "2026-11-16T00:56:05.420Z",
           "ended_at": null,
-          "duration_min": 9886
+          "duration_min": 9994
         }
       ]
     },
@@ -26,16 +26,16 @@
       "network": "public",
       "current_up": 0,
       "current_status": 0,
-      "current_latency_ms": 115,
+      "current_latency_ms": 47,
       "current_error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://judkinsparkforpeople.org/staging/",
       "uptime_24h": 0,
       "uptime_7d": 0,
-      "uptime_30d": 22.2,
+      "uptime_30d": 20.7,
       "incidents_7d": [
         {
-          "started_at": "2026-11-15T20:58:18.011Z",
+          "started_at": "2026-11-16T00:56:05.420Z",
           "ended_at": null,
-          "duration_min": 9886
+          "duration_min": 9994
         }
       ]
     },
@@ -45,7 +45,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 490,
+      "current_latency_ms": 417,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -58,7 +58,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 1153,
+      "current_latency_ms": 571,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -71,7 +71,7 @@
       "network": "public",
       "current_up": 1,
       "current_status": 200,
-      "current_latency_ms": 573,
+      "current_latency_ms": 425,
       "current_error": null,
       "uptime_24h": 100,
       "uptime_7d": 100,
@@ -82,15 +82,15 @@
   "incidents_7d": [
     {
       "project": "judkinsparkforpeople",
-      "started_at": "2026-11-15T20:58:18.011Z",
+      "started_at": "2026-11-16T00:56:05.420Z",
       "ended_at": null,
-      "duration_min": 9886
+      "duration_min": 9994
     },
     {
       "project": "judkinsparkforpeople-staging",
-      "started_at": "2026-11-15T20:58:18.011Z",
+      "started_at": "2026-11-16T00:56:05.420Z",
       "ended_at": null,
-      "duration_min": 9886
+      "duration_min": 9994
     }
   ]
 }
